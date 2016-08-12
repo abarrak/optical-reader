@@ -1,0 +1,94 @@
+<div class="parallax-container page-parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <h4 class="header col s12 light"><%= t 'static_content.wizard.title' %></h4>
+            </div>
+        </div>
+    </div>
+    <div class="parallax">
+        <img src="<%= url '/' %>images/banner-96.jpg" alt="Review Background Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="wizard">
+        <div class="row">
+            <div class="stepwizard">
+                <div class="stepwizard-row">
+                    <div class="stepwizard-step">
+                        <a type="button" class="btn-floating waves-effect waves-light brown disabled" disabled="disabled">1</a>
+                        <p><%= t 'scan' %></p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a type="button" class="btn-floating waves-effect waves-light brown disabled">2</a>
+                        <p><%= t 'review' %></p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a type="button" class="btn-floating waves-effect waves-light brown">3</a>
+                        <p><%= t 'export' %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 center">
+
+            <div class="row">
+                <h3 class="brown-text text-darken-3 wizard-title">
+                    <span class="underline"><%= t 'export' %></span>
+                </h3>
+                <p class="wizard-help-text"><%= t 'static_content.wizard.export.explaination' %></p>
+            </div>
+
+            <div class="row">
+                <div class="col l3 push-l3 m4 push-m2 s10 push-s1">
+                    <div class="export-widget">
+                        <a href="<%= pdf_url %>" class="valign-wrapper">
+                            <img src="<%= url '/' %>images/pdf.png" alt="PDF icon">
+                            <span><%= t 'static_content.wizard.export.pdf_version' %></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col l3 push-l3 m4 push-m2 s10 push-s1">
+                    <div class="export-widget">
+                        <a href="<%= txt_url %>" class="valign-wrapper">
+                            <img src="<%= url '/' %>images/txt.png" alt="Text icon">
+                            <span><%= t 'static_content.wizard.export.text_version' %></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <h6 class="center">
+                        <%= t 'static_content.wizard.delete_notice' %>
+                    </h6>
+                    <br>
+                    <form action="<%= to '/clean' %>" method="post">
+                        <input type="hidden" name="filename" value="<%= filename %>">
+                        <input type="hidden" name="<%= csrf_name %>" value="<%= csrf_token %>">
+                        <button id="next-button" class="brown-text waves-effect waves-brown btn-flat center" type="submit" name="clean_button">
+                            <%= t 'static_content.wizard.delete_now' %>
+                            <i class="material-icons right">delete</i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="section">
+                    <div class="col s12 center">
+                        <a href="<%= to '/scan' %>" class="btn waves-effect brown darken-1 waves-light"><%= t 'static_content.wizard.export.scan_again' %>
+                            <i class="material-icons right">repeat</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

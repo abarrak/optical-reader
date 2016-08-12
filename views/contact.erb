@@ -1,0 +1,84 @@
+<div class="parallax-container page-parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <h5 class="header col s12 light"><%= t 'static_content.contact.ask' %></h5>
+            </div>
+        </div>
+    </div>
+    <div class="parallax">
+        <img src="<%= url '/' %>images/contact-banner.jpg" alt="Contact Background Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+
+        <div class="row contact-form brown lighten-5 z-depth-2">
+            <h5 class="contact-heading">
+                <span class="heading slabo">
+                    <%= t 'static_content.contact.contact_us' %>
+                </span>
+            </h5>
+            <br>
+
+            <form class="col s12 contact-rows-parent" action="<%= to '/' %>contact" method="post">
+                <input type="hidden" name="<%= csrf_name %>" value="<%= csrf_token %>">
+                <div class="row">
+                    <div class="input-field col m6 s12">
+                        <i class="material-icons icon-medium prefix">account_circle</i>
+                        <input id="name" name="name" type="text" class="validate" value="<%= h params[:name] %>">
+                        <label for="name"><%= t('fields.name').capitalize %></label>
+                        <%= erb :_error_messages, layout: false, locals: { error_object: @errors[:name] } %>
+                    </div>
+
+                    <div class="input-field col m6 s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" name="email" type="email" class="validate" value="<%= h params[:email] %>">
+                        <label for="email"><%= t('fields.email').capitalize %></label>
+                        <%= erb :_error_messages, layout: false, locals: { error_object: @errors[:email] } %>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col m6 s12">
+                        <i class="material-icons prefix">subject</i>
+                        <input id="subject" name="subject" type="text" class="validate" value="<%= h params[:subject] %>">
+                        <label for="subject"><%= t('fields.subject').capitalize %></label>
+                        <%= erb :_error_messages, layout: false, locals: { error_object: @errors[:subject] } %>
+                    </div>
+                    <div class="input-field col m6 s12">
+                        <i class="material-icons prefix">label_outline</i>
+                        <select name="type">
+                            <option value="" <%= 'selected' if params[:type].nil? %> disabled><%= t('fields.type').capitalize %></option>
+                            <option value="1" <%= 'selected' if params[:type] == '1' %>><%= t 'static_content.contact.question' %></option>
+                            <option value="2" <%= 'selected' if params[:type] == '2' %>><%= t 'static_content.contact.suggestion' %></option>
+                            <option value="3" <%= 'selected' if params[:type] == '3' %>><%= t 'static_content.contact.complaint' %></option>
+                            <option value="4" <%= 'selected' if params[:type] == '4' %>><%= t 'static_content.contact.other' %></option>
+                        </select>
+                        <label></label>
+                        <%= erb :_error_messages, layout: false, locals: { error_object: @errors[:type] } %>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">chat_bubble_outline</i>
+                        <textarea id="message" name="message" class="materialize-textarea"><%= h params[:message] %></textarea>
+                        <label for="message"><%= t('fields.message').capitalize %></label>
+                        <%= erb :_error_messages, layout: false, locals: { error_object: @errors[:message] } %>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 center">
+                        <button class="btn waves-effect brown darken-1 waves-light" type="submit" name="submit">
+                            <%= t 'static_content.contact.send' %>
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

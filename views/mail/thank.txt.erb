@@ -1,0 +1,21 @@
+<%
+  # last resort.
+  name     ||= '(None)'
+  subject  ||= "(Empty)"
+%>
+
+<%= heading ||= t('mail.notification') %> || <%= t 'mail.name' %>
+
+
+<%= t 'mail.thank.heading', name: name %>
+
+<%= t 'mail.thank.body', subject: subject %>
+
+
+<%= t 'mail.thank.conclusion' %>
+
+<%= t 'mail.thank.tail' %>
+
+
+<%= settings.website_link %> ::
+<%= t "week._#{Time.now.strftime '%w'}" %> <%= Time.now.strftime '%d / %m / %Y - %I:%M' %> <%= t "time_mod.#{Time.now.strftime '%P'}" %>

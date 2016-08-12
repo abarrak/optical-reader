@@ -1,0 +1,185 @@
+en:
+  base_title: Optical Reader
+  about: About
+  wizard: Wizard
+  apps: Apps
+  home: Home
+  privacy: Privacy
+  contact: Contact
+  faq: FAQ
+  scan: Scan
+  review: Review
+  export: Exoport
+  sent: Sent
+  error: Error
+  not_found: Page Not Found
+  go_back: Go Back
+  app_name: Optical Reader App
+  dev_by: Developed by
+  me: Abdullah Barrak
+  on_word: "on"
+  arabic: Arabic
+  english: English
+  static_content:
+    contact:
+      status: Contact Message Status
+      ask: Please fill in the following form and we will get to you soon
+      contact_us: Contact Us
+      send: Send
+      question: Question
+      suggestion: Suggestion
+      complaint: Complaint
+      other: Other
+    home:
+      intro:
+        head: An online OCR Service
+        text: Extract texts from your documents images in easy simple steps
+        btn: Start Wizard
+      column1:
+        title: Scan with No Cost
+        content: >
+          Being built on top of amazing open source techonlogies, and with the spirit of openess and providing
+          access to everyone, Optical Reader is and will always be free.
+      column2:
+        title: Multilingual Support
+        content: >
+          Right now, Optical Reader recognizes only english and arabic languages.
+          Check out FAQ page to see the fonts the system supports.
+      column3:
+        title: Get PDF/txt Files
+        content: >
+          After scanning and reviewing your document,
+          you can obtain pdf or text file format as your preference.
+      mobile_adv: Get app to use the service from your phone immediately.
+      body: |
+        something here for json consumer !
+    about:
+      body: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus odio, mattis vel ipsum quis, molestie accumsan nibh. Phasellus at fermentum massa. Nulla a turpis quis purus iaculis rutrum. Nam maximus interdum dolor, a varius libero volutpat sed.
+        Vestibulum metus lacus, malesuada ut fermentum eget, molestie eget mauris. Vivamus vitae leo in lorem commodo molestie. Aliquam vestibulum porta massa nec sodales. Mauris consectetur congue tellus, sed dictum augue posuere ut. Quisque varius non leo
+        vel aliquet.
+
+        Aliquam malesuada, ligula id gravida placerat, orci lectus interdum mauris, ac maximus tellus nunc in felis. Duis fermentum blandit mi vitae aliquet. Phasellus ligula ante, venenatis quis consequat id, dignissim non lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce dignissim sapien vel nisi dignissim dignissim. Donec luctus mi dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ligula ante, bibendum id feugiat ut, finibus quis libero. Maecenas tortor lacus, efficitur a elit non, cursus rutrum leo.
+
+        Donec aliquam dolor libero. Nulla nec risus turpis. Donec at elit semper, commodo purus suscipit, ornare tellus. Morbi molestie urna non orci tincidunt cursus. Etiam viverra urna vel ante dapibus molestie nec a diam. Duis vestibulum magna neque, sit amet pellentesque sapien venenatis sit amet. Donec sed scelerisque nunc. Sed eleifend, ex sit amet iaculis laoreet, sem neque finibus arcu, sed tempor nisl sapien vitae lacus. Suspendisse gravida eget elit a elementum. Nunc eu dolor at urna suscipit malesuada. Proin pharetra dui eget lorem ultricies, vel ultricies metus rutrum. Sed facilisis ultricies arcu ac consequat.
+
+        Suspendisse fermentum felis dictum mauris scelerisque, et consequat justo vehicula. Aenean et velit id nisi semper dictum. Suspendisse gravida est ac neque pretium malesuada nec sit amet mi. Aenean fringilla, nulla sit amet rutrum mattis, erat dui gravida quam, vitae maximus turpis purus ac magna. Duis sapien justo, porta vitae efficitur id, hendrerit nec odio. Donec ornare lacus sit amet ligula rutrum, at porta est lacinia. Donec nec metus in ligula venenatis convallis.
+    faq:
+      body: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus odio, mattis vel ipsum quis, molestie accumsan nibh. Phasellus at fermentum massa. Nulla a turpis quis purus iaculis rutrum. Nam maximus interdum dolor, a varius libero volutpat sed.
+        Vestibulum metus lacus, malesuada ut fermentum eget, molestie eget mauris. Vivamus vitae leo in lorem commodo molestie. Aliquam vestibulum porta massa nec sodales. Mauris consectetur congue tellus, sed dictum augue posuere ut. Quisque varius non leo
+        vel aliquet.
+
+        Aliquam malesuada, ligula id gravida placerat, orci lectus interdum mauris, ac maximus tellus nunc in felis. Duis fermentum blandit mi vitae aliquet. Phasellus ligula ante, venenatis quis consequat id, dignissim non lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce dignissim sapien vel nisi dignissim dignissim. Donec luctus mi dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ligula ante, bibendum id feugiat ut, finibus quis libero. Maecenas tortor lacus, efficitur a elit non, cursus rutrum leo.
+
+        Donec aliquam dolor libero. Nulla nec risus turpis. Donec at elit semper, commodo purus suscipit, ornare tellus. Morbi molestie urna non orci tincidunt cursus. Etiam viverra urna vel ante dapibus molestie nec a diam. Duis vestibulum magna neque, sit amet pellentesque sapien venenatis sit amet. Donec sed scelerisque nunc. Sed eleifend, ex sit amet iaculis laoreet, sem neque finibus arcu, sed tempor nisl sapien vitae lacus. Suspendisse gravida eget elit a elementum. Nunc eu dolor at urna suscipit malesuada. Proin pharetra dui eget lorem ultricies, vel ultricies metus rutrum. Sed facilisis ultricies arcu ac consequat.
+    privacy:
+      body: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus odio, mattis vel ipsum quis, molestie accumsan nibh. Phasellus at fermentum massa. Nulla a turpis quis purus iaculis rutrum. Nam maximus interdum dolor, a varius libero volutpat sed.
+        Vestibulum metus lacus, malesuada ut fermentum eget, molestie eget mauris. Vivamus vitae leo in lorem commodo molestie. Aliquam vestibulum porta massa nec sodales. Mauris consectetur congue tellus, sed dictum augue posuere ut. Quisque varius non leo
+        vel aliquet.
+
+        Aliquam malesuada, ligula id gravida placerat, orci lectus interdum mauris, ac maximus tellus nunc in felis. Duis fermentum blandit mi vitae aliquet. Phasellus ligula ante, venenatis quis consequat id, dignissim non lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce dignissim sapien vel nisi dignissim dignissim. Donec luctus mi dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ligula ante, bibendum id feugiat ut, finibus quis libero. Maecenas tortor lacus, efficitur a elit non, cursus rutrum leo.
+
+        Donec aliquam dolor libero. Nulla nec risus turpis. Donec at elit semper, commodo purus suscipit, ornare tellus. Morbi molestie urna non orci tincidunt cursus. Etiam viverra urna vel ante dapibus molestie nec a diam. Duis vestibulum magna neque, sit amet pellentesque sapien venenatis sit amet. Donec sed scelerisque nunc. Sed eleifend, ex sit amet iaculis laoreet, sem neque finibus arcu, sed tempor nisl sapien vitae lacus. Suspendisse gravida eget elit a elementum. Nunc eu dolor at urna suscipit malesuada. Proin pharetra dui eget lorem ultricies, vel ultricies metus rutrum. Sed facilisis ultricies arcu ac consequat.
+    apps:
+      android: Android Mobile App
+      ios: iOS Mobile App
+      go_to_app_store: Open in app store
+      go_to_play: Open in google play
+      body: |
+        Some apps are coming soon !
+        Some apps are coming soon !
+    not_found:
+      body: The page you requested does not exist.
+    error:
+      body: Something went wrong. Sorry for the inconvenience.
+    footer:
+      adv: Scan documents optically for text with ease.
+    wizard:
+      title: OCR Service Wizard
+      scan_step_1: Please choose a the language and document image for processing.
+      scan_step_2: Do you want to review the extracted text ?
+      scan_step_3: Automatic Verification.
+      document: Document
+      image: Image
+      next: Next
+      supported_types: "Supported Types: .jpg | .jpeg | .png | .gif"
+      maximum_size: "Maximum Upload Size: { 10 MB }."
+      review_me:
+        option1: 'No'
+        option2: 'Yes'
+      files_deleted: Files deleted successfully.
+      delete_notice: Please note that files will be deleted from server within 30 minutes.
+      delete_now: Delete Now
+      review:
+        explaination: Examine the extracted text and make changes.
+        ocr_output: OCR Output
+        document_image: Document Image
+        editor: Editor
+      export:
+        explaination: Pick up your favorite file format.
+        text_version: Text version
+        pdf_version: PDF version
+        scan_again: Scan Agin
+  fields:
+    document: document
+    language: language
+    name: name
+    email: email
+    subject: subject
+    type: type
+    message: message
+  errors:
+    apology_505: Something went wrong. Sorry for the inconvenience.
+    apology_404: The page you requested does not exist.
+    accepted: "Seems good !"
+    not_accepted: "Some errors needs fixing :("
+    blank: "%{field} can't be blank."
+    email: "%{field} is not in a valid format."
+    longer: "%{field} can't be longer than %{amount} characters."
+    shorter: "%{field} can't be shorter than %{amount} characters."
+    choice: "Please choose a valid %{field} from the list."
+    exceed_size: "File exceeds the maximum allowed size."
+    not_image: "Submitted file is not image."
+    carrierwave_integrity_error: "Not an image."
+    carrierwave_download_error: "Couldn't download image."
+    extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
+    extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
+    export_empty: Sorry. It seems that text exported was empty
+    wrong_captcha: reCaptcha failed. Please try again.
+  mail:
+    thank_for_contact: "Thank you %{name} .."
+    tell_for_contact: "Your message is sent !"
+    name: Optical Reader Mailer
+    preview: Previewing Mail
+    notification: Notification
+    contact_email_subject: Contact Notification from OpticalReader
+    thank:
+      heading: "Hi %{name}, and we hope you're all right."
+      body: "Please note that we have received your message titled: %{subject}, and we'll respond as soon as possible."
+      conclusion: Thanks for reaching out with us !
+      tail: Optical Reader App Team
+    contact:
+      heading: You have received the following mail from
+      subject: Subject
+      type: Type
+      message: Message
+  week:
+    _0: Sunday
+    _1: Monday
+    _2: Tuesday
+    _3: Wednesday
+    _4: Thursday
+    _5: Friday
+    _6: Saturday
+  time_mod:
+    pm: PM
+    am: AM
+  share:
+    fb: Share on facebook !
+    gp: Share on google+ !
+    tw: Share on twitter !
+    li: Share on linkedin !
+    tu: Share on tumblr !
+    em: Share via email !

@@ -1,0 +1,7 @@
+  <% unless error_object.nil? %>
+    <p class="center red-text lighten-2">
+      <% error_object.each do |msg| %>
+      <%= msg %><br>
+      <% end %>
+    </p>
+  <% end %>

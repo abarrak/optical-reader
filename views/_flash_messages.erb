@@ -1,0 +1,11 @@
+<% unless flash[:alert].nil? %>
+<div class="row">
+    <span class="flash-alert"><%= flash[:alert] %></span>
+</div>
+<% end %>
+
+<% unless flash[:success].nil? %>
+<div class="row">
+    <span class="flash-success"><%= flash[:success] %></span>
+</div>
+<% end %>

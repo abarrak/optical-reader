@@ -1,0 +1,14 @@
+<%
+  # last resort.
+  name     ||= '(None)'
+  subject  ||= "(Empty)"
+%>
+<p>
+  <%= t 'mail.thank.heading', name: name %>
+  <br><br>
+  <%= t 'mail.thank.body', subject: subject %>
+  <br><br>
+  <%= t 'mail.thank.conclusion' %>
+  <br>
+  <%= t 'mail.thank.tail' %>
+</p>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title><%= heading ||= t('mail.notification') %></title>
+  <style>
+    body {
+        margin-top: 3rem;
+        background: whitesmoke;
+        line-height: 1.4rem;
+        <%= 'direction: rtl;' if I18n.locale == :ar %>
+    }
+    .content {
+        text-align: center;
+        font-family: sans-serif, Arial;
+        width: 80%;
+        border: 0.1rem solid #3e2723;
+        border-radius: 1rem;
+        margin: 0 auto;
+        padding: 1rem;
+        background-color: #efebe9;
+    }
+    .title {
+        color: #4e342e;
+        font-family: 'Open Sans', sans-serif, Arial;
+        font-size: 1.2rem;
+        padding: 0.2rem 1rem;
+    }
+    .title h4 {
+        padding-top: 0;
+        margin-top: 0;
+        display: inline;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+    }
+    .message, a {
+        color: #8d6e63;
+        font-family: Georgia, serif;
+        font-size: 1rem;
+    }
+    .left-text {
+        text-align: left;
+        padding-left: 3rem;
+    }
+    .right-text {
+      text-align: right;
+      padding-right: 3rem;
+    }
+    a:hover {
+        color: brown;
+    }
+    .ending {
+        padding: 0;
+        margin: 0;
+    }
+    @media only screen and (max-width : 600px) {
+        body {
+            margin-top: 2em;
+        }
+        .content {
+            width: 85%;
+        }
+        .left-text {
+            text-align: left;
+            padding-left: 0;
+        }
+        .message {
+          font-size: 0.9rem;
+        }
+    }
+  </style>
+  </style>
+</head>
+<body>
+  <div class="content">
+      <div class="title">
+          <%= heading ||= t('mail.notification') %> || <h4><%= t 'mail.name' %></h4>
+      </div>
+      <div class="message">
+          <hr>
+
+          <%= yield %>
+
+          <hr>
+          <p class="ending">
+              <strong>
+                  <a href="<%= settings.website_link %>"><%= settings.website_link %></a>
+              </strong>
+              ::<br>
+              <%= t "week._#{Time.now.strftime '%w'}" %>
+              <%= Time.now.strftime '%d / %m / %Y - %I:%M' %>
+              <%= t "time_mod.#{Time.now.strftime '%P'}" %></p>
+      </div>
+  </div>
+</body>
+</html>

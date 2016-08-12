@@ -1,0 +1,24 @@
+<%
+  # last resort.
+  name      ||= '(None)'
+  email     ||= 'None'
+  subject   ||= '(Empty)'
+  type      ||= 'other'
+  message   ||= ""
+%>
+<%= heading ||= t('mail.notification') %> || <%= t 'mail.name' %>
+
+
+<%= t 'mail.contact.heading' %> <%= name %>, [<%= email %>]
+
+<%= t 'mail.contact.subject' %>: <%= subject %>
+
+<%= t 'mail.contact.type' %>: <%= type %>
+
+<%= t 'mail.contact.message' %>:
+
+<%= message %>
+
+
+<%= settings.website_link %> ::
+<%= t "week._#{Time.now.strftime '%w'}" %> <%= Time.now.strftime '%d / %m / %Y - %I:%M' %> <%= t "time_mod.#{Time.now.strftime '%P'}" %>

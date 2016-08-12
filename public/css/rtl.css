@@ -1,0 +1,172 @@
+/**
+ *  Specific customization to materialize-css to be RTL.
+ *  Will try to extact this .. complete what's missing and publish it.
+ */
+body {
+  direction: rtl;
+}
+
+.row .col {
+  float: right;
+}
+
+.button-collapse {
+  float: right !important;
+}
+
+.nav-wrapper ul {
+  float: left !important;
+}
+
+.nav-wrapper ul li {
+  float: right !important;
+}
+
+ul.links {
+  float: left !important;
+}
+
+ul.links li {
+  float: right !important;
+  border-right: solid 1px #efebe9;
+  border-left: 0;
+}
+
+ul.links li:first-child {
+  border-right: none;
+}
+
+.breadcrumb:before {
+  content: '\E5CB';
+}
+
+.page-nav-text {
+  padding-left: 0;
+  padding-right: 20em !important;
+}
+
+.page-content-area {
+}
+
+.wizard-help-text {
+  font-size: 1.2em;
+}
+
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content {
+    margin-left: 0rem;
+    margin-right: 4rem;
+    width: 92%;
+    width: calc(100% - 4rem);
+}
+
+.input-field.col label {
+    right: 1rem;
+}
+
+.prefix ~ .select-wrapper {
+  margin-left: 0rem;
+  margin-right: 4rem;
+  width: 92%;
+  width: calc(100% - 4rem);
+}
+
+.prefix ~ label {
+  margin-left: 0;
+  margin-right: 4rem;
+}
+
+.select-wrapper span.caret {
+  left: 0;
+  right: inherit;
+}
+
+.select-dropdown li {
+  text-align: right;
+}
+
+.file-field .btn, .file-field .btn-large {
+  float: right;
+}
+
+.file-field .file-path-wrapper {
+  padding-right: 10px;
+}
+
+
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  left: 0;
+  right: -9999px;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  left: 0;
+  right: -9999px;
+}
+
+.contact-form {
+  border-radius: 1.5em 0 0 0;
+}
+
+.contact-heading {
+  margin: 0 0 0.7em 0;
+  border-radius: 1.5em 0 0 1.5em;
+}
+
+button i.material-icons {
+  margin-right: 0.5em;
+  margin-left: 0;
+  float: left !important;
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+}
+
+/**
+ * just thoes cols right now :) !
+ */
+.row .col.push-s1 {
+  right: 8.3333333333%;
+}
+
+@media only screen and (min-width: 601px) {
+  .row .col.push-m2 {
+    left: 0;
+    right: 16.6666666667%;
+  }
+  .row .col.push-m3 {
+    left: 0;
+    right: 25%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .row .col.push-l3 {
+    left: 0;
+    right: 25%;
+  }
+}
+
+
+@media only screen and (max-width : 992px) {
+  .nav-wrapper ul li {
+    float: none !important;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  .nav-wrapper ul li {
+    float: none !important;
+  }
+
+  .page-nav-text {
+    padding-left: 0 !important;
+    padding-right: 2.5em !important;
+  }
+
+  .page-content-area {
+    text-align: right;
+  }
+}

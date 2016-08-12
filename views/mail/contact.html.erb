@@ -1,0 +1,26 @@
+<%
+  # last resort.
+  name      ||= '(None)'
+  email     ||= 'None'
+  subject   ||= '(Empty)'
+  type      ||= 'other'
+  message   ||= ""
+%>
+
+<p>
+  <%= t 'mail.contact.heading' %> <%= name %>, [<a href="mailto:<%= email %>"><%= email %></a>]
+</p>
+<div class="<%= I18n.locale == :ar ? 'right-text' : 'left-text' %>">
+  <p>
+    <strong><%= t 'mail.contact.subject' %>:</strong> <%= subject %>
+  </p>
+  <p>
+    <strong><%= t 'mail.contact.type' %>:</strong> <%= type %>
+  </p>
+  <p>
+    <strong><%= t 'mail.contact.message' %>:</strong>
+  </p>
+  <p>
+    <%= message %>
+  </p>
+</div>

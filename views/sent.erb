@@ -1,0 +1,43 @@
+<div class="parallax-container page-parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <h5 class="header col s12 light"><%= t 'static_content.contact.status' %></h5>
+            </div>
+        </div>
+    </div>
+    <div class="parallax">
+        <img src="<%= url '/' %>images/contact-banner.jpg" alt="Contact Background Image">
+    </div>
+</div>
+
+<div class="row brown lighten-5 page-content-container">
+    <nav>
+        <div class="navigator nav-wrapper brown lighten-2">
+            <div class="col s12 page-nav-text">
+                <a href="<%= to '/' %>" class="breadcrumb"><%= t 'home' %></a>
+                <a href="<%= to '/contact' %>" class="breadcrumb"><%= t 'contact' %></a>
+                <a class="breadcrumb"><%= t 'sent' %></a>
+            </div>
+        </div>
+    </nav>
+    <div class="card-sent">
+        <div class="row">
+            <div class="col m6 push-m3 s12 center">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="card-title"><%= flash[:success] %></p>
+                        <br>
+                        <p><%= t 'mail.tell_for_contact' %></p>
+                    </div>
+                    <div class="card-action">
+                        <a class="brown-text" href="<%= to '/about' %>"><%= t 'about' %></a>
+                        <a class="brown-text" href="<%= to '/faq' %>"><%= t 'faq' %></a>
+                        <a class="brown-text" href="<%= to '/scan' %>"><%= t 'scan' %></a>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

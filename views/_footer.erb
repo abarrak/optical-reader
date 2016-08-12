@@ -1,0 +1,28 @@
+<footer class="page-footer brown brown darken-1">
+  <div class="container">
+    <div class="row">
+      <div class="col m5 s12 ">
+        <h5 class="white-text open-sans">
+          <span class="underline"><%= t 'base_title' %></span>
+        </h5>
+        <p class="grey-text text-lighten-4"><%= t 'static_content.footer.adv' %></p>
+      </div>
+      <div class="col m7 s12">
+        <ul class="links right">
+            <li><a href="<%= to '/' %>"><%= t 'home' %></a></li>
+            <li><a href="<%= to '/privacy' %>"><%= t 'privacy' %></a></li>
+            <li><a href="<%= to '/faq' %>"><%= t 'faq' %></a></li>
+            <li><a href="<%= to '/contact' %>"><%= t 'contact' %></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      <span class="<%= ar? ? 'right' : 'left' %>">
+        <%= t 'dev_by' %>: <a href="http://abarrak.com"><%= t 'me' %></a>
+      </span>
+      <a class="grey-text text-lighten-4 <%= ar? ? 'left' : 'right' %>" href="#top">&#8593;</a>
+    </div>
+  </div>
+</footer>

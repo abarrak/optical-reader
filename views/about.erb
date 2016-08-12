@@ -1,0 +1,32 @@
+<div class="parallax-container page-parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <h4 class="header col s12 light"><%= t 'about' %></h4>
+            </div>
+        </div>
+    </div>
+    <div class="parallax">
+        <img src="<%= url '/' %>images/banner-about.jpg" alt="Scan Background Image">
+    </div>
+</div>
+
+<div class="row brown lighten-5 page-content-container">
+    <nav>
+        <div class="navigator nav-wrapper brown lighten-2">
+            <div class="col s12 page-nav-text">
+                <a href="<%= to '/' %>" class="breadcrumb"><%= t 'home' %></a>
+                <a class="breadcrumb"><%= t 'about' %></a>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="page-content-area">
+          <%= t 'static_content.about.body' %>
+        </div>
+        <div class="row center">
+          <%= erb :_share_buttons, layout: false, escape_html: true,
+                  locals: { share_text: sharify(@title), link: to('/about') } %>
+        </div>
+    </div>
+</div>

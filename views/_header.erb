@@ -1,0 +1,29 @@
+<!-- Dropdown Structure -->
+<ul id="lang-dropdown" class="dropdown-content">
+  <li><a href="<%= url '/en/' %>"><%= t 'english' %></a></li>
+  <li><a href="<%= url '/ar/' %>"><%= t 'arabic' %></a></li>
+</ul>
+
+<nav class="white text-black" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="<%= to('/') %>" class="brand-logo open-sans"><%= t 'base_title' %></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="<%= to'/scan' %>"><%= t 'wizard' %></a></li>
+      <li><a href="<%= to'/about'  %>"><%= t 'about' %></a></li>
+      <li><a href="<%= to'/apps' %>"><%= t 'apps' %></a></li>
+      <!-- Lang Dropdown Trigger -->
+      <li><a class="dropdown-button" data-activates="lang-dropdown"><%= t 'fields.language' %><i class="material-icons right">language</i></a>
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="<%= to'/scan' %>"><%= t 'wizard' %></a></li>
+      <li><a href="<%= to'/about'  %>"><%= t 'about' %></a></li>
+      <li><a href="<%= to'/apps' %>"><%= t 'apps' %></a></li>
+      <li class="divider"></li>
+      <li><a href="<%= url '/en/' %>"><%= t 'english' %></a></li>
+      <li><a href="<%= url '/ar/' %>"><%= t 'arabic' %></a></li>
+    </ul>
+    <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </li>
+  </div>
+</nav>

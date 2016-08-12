@@ -1,0 +1,122 @@
+<div class="parallax-container page-parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <h4 class="header col s12 light"><%= t 'static_content.wizard.title' %></h4>
+            </div>
+        </div>
+    </div>
+    <div class="parallax">
+        <img src="<%= url '/' %>images/banner-90.jpg" alt="Scan Background Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="wizard">
+        <div class="row">
+            <div class="stepwizard">
+                <div class="stepwizard-row">
+                    <div class="stepwizard-step">
+                        <a type="button" class="btn-floating waves-effect waves-light brown">1</a>
+                        <p><%= t 'scan' %></p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a type="button" class="btn-floating waves-effect waves-light brown disabled" disabled="disabled">2</a>
+                        <p><%= t 'review' %></p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a type="button" class="btn-floating waves-effect waves-light brown disabled" disabled="disabled">3</a>
+                        <p><%= t 'export' %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center">
+        <%= erb :_flash_messages, layout: false %>
+        <h3 class="brown-text text-darken-3">
+            <span class="underline"><%= t 'scan' %></span>
+        </h3>
+    </div>
+
+    <div class="row scan-container">
+        <form id="scan-form" role="form" action="<%= to '/' %>scan" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="<%= csrf_name %>" value="<%= csrf_token %>">
+            <!-- section 1 -->
+            <div class="section">
+                <div class="row center">
+                    <p class="wizard-help-text">
+                        <span class="wizard-asterisk">*</span>
+                        <%= t 'static_content.wizard.scan_step_1' %>
+                    </p>
+                    <input type="radio" id="eng" class="with-gap" name="language" value="eng" checked>
+                    <label for="eng"><%= t 'english' %></label>&nbsp; &nbsp; &nbsp;
+                    <input type="radio" id="ara" class="with-gap" name="language" value="ara">
+                    <label for="ara"><%= t 'arabic' %></label>
+                    <%= erb :_error_messages, layout: false, locals: { error_object: @errors[:language] } %>
+                </div>
+                <div class="row">
+                    <div class="col m6 s12 file-field input-field">
+                        <div class="btn btn-small brown lighten-1 waves-effect waves-light">
+                            <span><%= t 'static_content.wizard.document' %></span>
+                            <input id="document" type="file" name="document" required accept="image/png, image/gif, image/jpeg" required>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                        <label for="document"><%= t 'static_content.wizard.image' %></label>
+                        <%= erb :_error_messages, layout: false, locals: { error_object: @errors[:document] } %>
+                    </div>
+                    <div class="col m6 s12">
+                        <p class="wizard-help-text center-align">
+                            <%= t 'static_content.wizard.supported_types' %>
+                            <br>
+                            <%= t 'static_content.wizard.maximum_size' %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ section 1 -->
+
+            <div class="section center">
+                <div class="row">
+                    <!--/ section 2 -->
+                    <div class="col m6 s12">
+                        <p class="center wizard-help-text">
+                            <span class="wizard-asterisk">*</span>
+                            <%= t 'static_content.wizard.scan_step_2' %>
+                        </p>
+                        <div class="switch">
+                            <label for="review_me">
+                                <%= t 'static_content.wizard.review_me.option1' %>
+                                <input id="review_me" type="checkbox" name="review_me" checked>
+                                <span class="lever"></span>
+                                <%= t 'static_content.wizard.review_me.option2' %>
+                            </label>
+                        </div>
+                    </div>
+                    <!--/ section 2 -->
+                    <div class="col s12 hide-on-med-and-up scan-divier"></div>
+                    <!--/ section 3 -->
+                    <div class="col m6 s12">
+                        <div class="<%= ar? ? 'left' : 'right' %>">
+                            <p class="wizard-help-text">
+                                <span class="wizard-asterisk">*</span>
+                                <%= t 'static_content.wizard.scan_step_3' %>
+                            </p>
+                            <%= recaptcha_tags hl: I18n.locale %>
+                        </div>
+                    </div>
+                </div>
+                <!--/ section 3 -->
+            </div>
+
+            <div class="row center">
+                <button id="next-button" class="btn waves-effect brown darken-1 waves-light next-btn" type="submit" name="next"><%= t 'static_content.wizard.next' %>
+                    <i class="material-icons right">trending_flat</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
