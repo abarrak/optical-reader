@@ -135,7 +135,7 @@ module OpticalReader
         Prawn::Document.generate path do
           if lang == 'ara'
             text_direction :rtl
-            content = content.connect_arabic_letters
+            content = content.force_encoding("UTF-8").connect_arabic_letters.force_encoding("UTF-8")
           end
           font font_file
           text content

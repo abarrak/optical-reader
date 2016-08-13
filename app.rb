@@ -76,13 +76,13 @@ module OpticalReader
     post '/scan' do
       v = Validator.new params
 
-      unless v.validate_scan_input
-        @errors = v.errors
+      unless verify_recaptcha timeout: 15
+        flash.now[:alert] = t 'errors.wrong_captcha'
         return serve_page :scan
       end
 
-      unless verify_recaptcha timeout: 15
-        flash.now[:alert] = t 'errors.wrong_captcha'
+      unless v.validate_scan_input
+        @errors = v.errors
         return serve_page :scan
       end
 
