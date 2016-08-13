@@ -1,3 +1,4 @@
+# encoding: utf-8
 ## ----------------------------------------------------
 #             Optical Reader [2016]
 #   :summary: An online ocr service based on Tesseract.
