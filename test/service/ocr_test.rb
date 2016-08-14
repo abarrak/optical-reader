@@ -6,7 +6,7 @@
 
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../service/ocr'
+require_relative '../../service/ocr'
 
 module OpticalReaderTest
   module ServiceTest

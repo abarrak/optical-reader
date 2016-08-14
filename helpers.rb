@@ -1,3 +1,4 @@
+# encoding: utf-8
 ## ----------------------------------------------------
 #             Optical Reader [2016]
 #   :summary: An online ocr service based on Tesseract.
@@ -133,9 +134,10 @@ module OpticalReader
         # content, lang = content, lang
         font_file = "#{settings.public_folder}/fonts/Arial.ttf"
         Prawn::Document.generate path do
+          content.encode! Encoding.find('UTF-8'), { invalid: :replace, undef: :replace, replace: '' }
           if lang == 'ara'
             text_direction :rtl
-            content = content.force_encoding("UTF-8").connect_arabic_letters.force_encoding("UTF-8")
+            content = content.connect_arabic_letters.force_encoding("UTF-8")
           end
           font font_file
           text content
