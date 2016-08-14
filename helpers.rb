@@ -230,8 +230,8 @@ module OpticalReader
     def contact_mail sender_name, sender_email, subject, type, message
       setup_mail
 
-      locals = { heading: t('mail.notification'), name: sender_name, subject: subject, type: type,
-                 message: message }
+      locals = { heading: t('mail.notification'), name: sender_name, email: sender_email,
+                 subject: subject, type: type, message: message }
       html_body, txt_body = fetch_mail_versions :contact, locals
 
       mail = Mail.new do
