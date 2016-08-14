@@ -41,7 +41,7 @@
     </div>
 
     <div class="row scan-container">
-        <form id="scan-form" role="form" action="<%= to '/' %>scan" method="post" enctype="multipart/form-data">
+        <form id="scan-form" role="form" action="<%= to '/' %>scan" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
             <input name="utf8" type="hidden" value="&#x2713;" />
             <input type="hidden" name="<%= csrf_name %>" value="<%= csrf_token %>">
             <!-- section 1 -->

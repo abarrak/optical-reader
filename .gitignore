@@ -8,3 +8,7 @@
 # logs
 logs
 logs/*
+
+# assets
+public/ocr-uploads/*
+public/ocr-output/*
