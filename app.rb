@@ -1,5 +1,5 @@
 ## ----------------------------------------------------
-#             Optical Reader [2016]
+#             Optical Reader [2016] 😁
 #   :summary: An online ocr service based on Tesseract.
 #   :author:  Abdullah Barrak (github.com/abarrak).
 ## ----------------------------------------------------
@@ -14,6 +14,7 @@ module OpticalReader
 
     # App filters.
     before do
+      headers 'Content-type' => 'text/html; charset=utf-8'
       @logger = settings.log if settings.development?
       @errors = {}
       # ensure csrf token.
