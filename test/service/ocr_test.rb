@@ -1,9 +1,3 @@
-## ----------------------------------------------------
-#             Optical Reader [2016]
-#   :summary: An online ocr service based on Tesseract.
-#   :author:  Abdullah Barrak (github.com/abarrak).
-## ----------------------------------------------------
-
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../../service/ocr'
@@ -15,20 +9,37 @@ module OpticalReaderTest
       include OpticalReader::Service
 
       def setup
-        @ocr = OCR.new "test-sample.png", :en
+        @eng_image = File.expand_path "test-images/sample-eng.png", File.dirname(__FILE__)
+        @ara_image = File.expand_path "test-images/sample-ara.png", File.dirname(__FILE__)
       end
 
-      def test_recognize_result
+      def test_recognize
+        assert_raises(ArgumentError) { OCR.new nil, nil }
+        assert_raises(ArgumentError) { OCR.new @eng_image, :re }
+
+        ocr = OCR.new @eng_image, :eng
+        ocr.doc_path = nil
+        assert_raises(ArgumentError) { ocr.recognize }
+        ocr.lang = nil
+        assert_raises(ArgumentError) { ocr.recognize }
+        ocr.lang = :foo
+        assert_raises(ArgumentError) { ocr.recognize }
+        ocr.lang = :foo
+        assert_raises(ArgumentError) { ocr.recognize }
       end
 
       def test_recognize_english
-        @ocr.doc_path = "test-en.png"
-        @ocr.lang = :en
+        ocr = OCR.new @eng_image, :eng
+        assert_equal ocr.doc_path, @eng_image
+        assert_equal ocr.lang, :eng
+        assert_kind_of String, ocr.recognize
       end
 
       def test_recognize_arabic
-        @ocr.doc_path = "test-ar.png"
-        @ocr.lang = :ar
+        ocr = OCR.new @ara_image, :ara
+        assert_equal ocr.doc_path, @ara_image
+        assert_equal ocr.lang, :ara
+        assert_kind_of String, ocr.recognize
       end
     end
 

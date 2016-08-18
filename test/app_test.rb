@@ -1,9 +1,3 @@
-## ----------------------------------------------------
-#             Optical Reader [2016]
-#   :summary: An online ocr service based on Tesseract.
-#   :author:  Abdullah Barrak (github.com/abarrak).
-## ----------------------------------------------------
-
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'rack/test'
@@ -28,6 +22,18 @@ module OpticalReaderTest
           end
         end
       end
+    end
+
+    def test_scan_rejects_missing_recaptca
+    end
+
+    def test_scan_rejects_invalid_recaptca
+    end
+
+    def test_scan_rejects_improper_submission
+    end
+
+    def test_scan_accepts_proper_submission
     end
 
   end

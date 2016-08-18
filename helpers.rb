@@ -1,9 +1,3 @@
-## ----------------------------------------------------
-#             Optical Reader [2016] 😁
-#   :summary: An online ocr service based on Tesseract.
-#   :author:  Abdullah Barrak (github.com/abarrak).
-## ----------------------------------------------------
-
 module OpticalReader
   module Helpers
 

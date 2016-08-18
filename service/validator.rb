@@ -1,29 +1,24 @@
-## ----------------------------------------------------
-#             Optical Reader [2016]
-#   :summary: An online ocr service based on Tesseract.
-#   :author:  Abdullah Barrak (github.com/abarrak).
-## ----------------------------------------------------
-
 module OpticalReader
   module Service
 
     class Validator
+      attr_accessor :input
       attr_accessor :errors
 
-      def initialize input
+      def initialize input, max_file_size = 10485760
         @input = input
         @errors = Hash.new
+        @max_file_size = max_file_size
       end
 
       def validate_scan_input
+        reset_errors!
+
         # process language input.
-        validate :language, :blank?
+        validate_presence :language
         validate_choice :language, :choice?, OCR.langs
-
         # process file input.
-        @max_file_size = 10485760
-        validate :document, :blank?
-
+        validate_presence :document
         if !@input[:document].nil? && !@input[:document][:tempfile].nil?
           validate_file :document, [:exceed_size?, :not_image?]
         end
@@ -36,26 +31,25 @@ module OpticalReader
       end
 
       def validate_contact_input
+        reset_errors!
+
         # process name
-        validate :name, :blank?
+        validate_presence :name
         validate_length :name, :longer?, 80
         validate_length :name, :shorter?, 3
-
         # process subject.
-        validate :subject, :blank?
+        validate_presence :subject
         validate_length :subject, :longer?, 150
         validate_length :subject, :shorter?, 6
-
         # process email.
-        validate :email, [:blank?, :email?]
+        validate_presence :email
+        validate_email :email
         validate_length :email, :longer?, 150
         validate_length :email, :shorter?, 8
-
         # process type.
-        validate_choice :type, :choice?, ['', '1', '2', '3', '4']
-
+        validate_choice :type, :choice?, ['1', '2', '3', '4']
         # process Message.
-        validate :message, :blank?
+        validate_presence :message
         validate_length :message, :longer?, 10000
         validate_length :message, :shorter?, 10
 
@@ -64,29 +58,47 @@ module OpticalReader
 
       private
 
+        def reset_errors!
+          @errors.clear
+        end
+
         def valid_input?
           @errors.empty? ? true : false
         end
 
-        def validate field, validators
-          val = lambda do |v, f|
-            if send v, @input[f]
-              key = format_t_key v
-              @errors[f] ||= []
-              @errors[f] << I18n.t("errors.#{key}", field: f(f))
-            end
-          end
+        # DELETE ME !!!
+        # def validate field, validators
+        #   val = lambda do |v, f|
+        #     if send v, @input[f]
+        #       key = format_t_key v
+        #       @errors[f] ||= []
+        #       @errors[f] << I18n.t("errors.#{key}", field: f(f))
+        #     end
+        #   end
 
-          unless validators.respond_to? :each
-            val.call validators, field
-          else
-            validators.each do |v|
-              val.call v, field
-            end
+        #   unless validators.respond_to? :each
+        #     val.call validators, field
+        #   else
+        #     validators.each { |v| val.call v, field }
+        #   end
+        # end
+
+        def validate_presence field
+          if send :blank?, @input[field]
+            @errors[field] ||= []
+            @errors[field] << I18n.t("errors.blank", field: f(field))
+          end
+        end
+
+        def validate_email field
+          unless send :email?, @input[field]
+            @errors[field] ||= []
+            @errors[field] << I18n.t("errors.email", field: f(field))
           end
         end
 
         def validate_length field, validator, amount
+          return if @input[field].nil?
           if send validator, @input[field], amount
             key = format_t_key validator
             @errors[field] ||= []
@@ -126,11 +138,11 @@ module OpticalReader
         end
 
         def email? value
-          (value =~ /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i).nil?
+          !(value =~ /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i).nil?
         end
 
         def choice? value, col
-          col.include? value
+          col.include? value.to_s
         end
 
         def exceed_size? value

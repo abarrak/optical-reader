@@ -1,9 +1,3 @@
-## ----------------------------------------------------
-#             Optical Reader [2016] 😁
-#   :summary: An online ocr service based on Tesseract.
-#   :author:  Abdullah Barrak (github.com/abarrak).
-## ----------------------------------------------------
-
 require_relative 'base'
 
 module OpticalReader
@@ -94,13 +88,13 @@ module OpticalReader
 
       # go next depending on 'review_me' param.
       if !params[:review_me].nil? && params[:review_me] == 'on'
-        redirect to('/review'), 307
+        redirect to('/review')
       else
-        redirect to('/export'), 307
+        redirect to('/export')
       end
     end
 
-    post '/review' do
+    get '/review' do
       doc_url, lang = session['document_path'], session['language']
       output = recognize doc_url, lang
 
@@ -111,7 +105,7 @@ module OpticalReader
       serve_page :review, nil, locals
     end
 
-    post '/export' do
+    get '/export' do
       if session['review_me'] != 'on'
         if session['document_path'].nil? || session['language'].nil?
           flash[:alert] = t 'error.apology_505'
