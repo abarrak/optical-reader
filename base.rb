@@ -31,6 +31,7 @@ require 'aws-sdk'
 require './service/ocr'
 require './service/validator'
 require './helpers'
+require './override'
 
 module OpticalReader
   class App < Sinatra::Application
@@ -82,8 +83,8 @@ module OpticalReader
       register Sinatra::Reloader
       enable :logging
       # custom logger.
-      log_path = File.join settings.root, "logs", "development.log"
-      set :log, Logger.new(File.new log_path, 'a+', sync: true)
+      logger = File.new "#{settings.root}/logs/development.log", 'a+', sync: true
+      set :log, Logger.new(logger)
     end
 
     # reCaptcha settings.

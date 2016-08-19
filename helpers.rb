@@ -142,10 +142,10 @@ module OpticalReader
     # but it turns out in aws, I should use "Amazon S3 – Object Expiration" instead.
     def self.schedule_for_cleanup
       if App.settings.development?
-        # since ENV=dev, keep it to files with 2 min age & run every 3 min.
-        Rufus::Scheduler.new.every '3m' do
+        # since ENV=dev, keep it to files with 3 min age & run every 5 min.
+        Rufus::Scheduler.new.every '5m' do
           puts "cleaning task is running .."
-          delete_files! 2
+          delete_files! 3
         end
       end
     end
