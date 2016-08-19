@@ -2,14 +2,10 @@ require_relative 'base'
 
 module OpticalReader
   class App < Sinatra::Application
-    include Recaptcha::ClientHelper
-    include Recaptcha::Verify
-    include Service
 
     # App filters.
     before do
       headers 'Content-type' => 'text/html; charset=utf-8'
-      @logger = settings.log if settings.development?
       @errors = {}
       # ensure csrf token.
       unless request.xhr?
@@ -145,23 +141,16 @@ module OpticalReader
 
     # Error handlers.
     not_found do
-      if settings.development?
-        @logger.warn "(404) Not Found. \nRequest dump: \n#{request.inspect.to_yaml}"
-      end
       serve_page :not_found, :_error
     end
 
     error do
       if settings.development?
-        @logger.warn "(500) Something went wrong. \nMessage: #{env['sinatra.error'].message} \
-                      \nFull Errpr: \n#{env['sinatra.error'].to_yaml}"
+        settings.log.error "(500) Error. \nMessage: #{env['sinatra.error'].message} \
+                            \nFull Errpr: \n#{env['sinatra.error'].to_yaml}"
       end
       serve_page :error, :_error
     end
-
-    # api (non-get) routes.
-    # 'serve_page' covers get routes restfully.
-
 
     # Mail preview in development only.
     get '/preview/:mail.:format' do

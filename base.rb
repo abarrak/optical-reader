@@ -42,7 +42,7 @@ module OpticalReader
     use Rack::Protection::AuthenticityToken
     use Rack::Flash
 
-    # request types.
+    # Request types.
     respond_to :html, :json
 
     configure do
@@ -56,6 +56,7 @@ module OpticalReader
       set :upload_url, File.join('', 'ocr-uploads')
       set :output_url, File.join('', 'ocr-output')
 
+      # caching.
       set :static_cache_control, true
 
       # i18n setup.
@@ -79,8 +80,8 @@ module OpticalReader
     # App settings.
     configure :development do
       register Sinatra::Reloader
-      # set custom logger.
       enable :logging
+      # custom logger.
       log_path = File.join settings.root, "logs", "development.log"
       set :log, Logger.new(File.new log_path, 'a+', sync: true)
     end
@@ -97,5 +98,8 @@ module OpticalReader
       set :show_exceptions, false
     end
 
+    include Recaptcha::ClientHelper
+    include Recaptcha::Verify
+    include Service
   end
 end
