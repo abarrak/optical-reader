@@ -30,6 +30,11 @@ module OpticalReader
         !blank?(@input[:reviewed_text])
       end
 
+      def validate_wizard_session
+        # input here is the session hash.
+        !blank?(@input['document_path']) && !blank?(@input['language'])
+      end
+
       def validate_contact_input
         reset_errors!
 

@@ -39,7 +39,7 @@
                 <h3 class="brown-text text-darken-3 wizard-title">
                     <span class="underline"><%= t 'review' %></span>
                 </h3>
-                <p class="wizard-help-text"></p>
+                <p class="wizard-help-text"><%= t 'static_content.wizard.review.explaination' %></p>
           </div>
           <form role="form" action="<%= to '/export' %>" method="post" accept-charset="UTF-8">
               <input name="utf8" type="hidden" value="&#x2713;" />
@@ -65,7 +65,7 @@
                             <div class="row">
                               <div class="input-field col s12">
                                 <i class="material-icons prefix">description</i>
-          <textarea id="reviewed_text" name="reviewed_text" class="materialize-textarea"><%= output %></textarea>
+                                <textarea id="reviewed_text" name="reviewed_text" class="materialize-textarea"><%= output %></textarea>
                                 <label for="reviewed_text"><%= t 'static_content.wizard.review.editor' %></label>
                               </div>
                             </div>

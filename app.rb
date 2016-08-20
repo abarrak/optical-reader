@@ -91,6 +91,8 @@ module OpticalReader
     end
 
     get '/review' do
+      exit_wizard_on_invalid_state
+
       doc_url, lang = session['document_path'], session['language']
       output = recognize doc_url, lang
 
@@ -102,11 +104,9 @@ module OpticalReader
     end
 
     get '/export' do
-      if session['review_me'] != 'on'
-        if session['document_path'].nil? || session['language'].nil?
-          flash[:alert] = t 'error.apology_505'
-          redirect '/scan'
-        end
+      unless session['review_me'] == 'on'
+        exit_wizard_on_invalid_state
+
         doc_path, lang = session['document_path'], session['language']
         output = recognize doc_path, lang
       else
@@ -121,15 +121,18 @@ module OpticalReader
       txt_url, pdf_url = generate_files! output, session['language']
       filename = txt_url.split('/').last.split('.').first
 
-      serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename }
+      # clear all session data and serve export.
+      session.clear
+      serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename,
+                                 image_url: session['document_path'] }
     end
 
     # give user the option to delete files manually upon finishing.
     post '/clean' do
       v = Validator.new nil
-      pic_path, output_filename = session['document_path'], params[:filename]
+      pic_path, output_filename = params[:image_url], params[:filename]
 
-      unless pic_path.nil? || output_filename.nil?
+      unless pic_path.nil? && output_filename.nil?
         delete_one! pic_path, output_filename
         flash[:success] = t 'static_content.wizard.files_deleted'
         redirect to('scan')

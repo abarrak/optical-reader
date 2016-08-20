@@ -71,6 +71,8 @@
                     <br>
                     <form action="<%= to '/clean' %>" method="post">
                         <input type="hidden" name="filename" value="<%= filename %>">
+                        <input type="hidden" name="image_url" value="<%= image_url %>">
+
                         <input type="hidden" name="<%= csrf_name %>" value="<%= csrf_token %>">
                         <button id="next-button" class="brown-text waves-effect waves-brown btn-flat center" type="submit" name="clean_button">
                             <%= t 'static_content.wizard.delete_now' %>

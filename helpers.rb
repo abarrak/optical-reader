@@ -48,6 +48,13 @@ module OpticalReader
       title.sub '|', t('on_word')
     end
 
+    def exit_wizard_on_invalid_state
+      unless OpticalReader::Service::Validator.new(session).validate_wizard_session
+          flash[:alert] = t 'error.apology_505'
+          redirect '/scan'
+      end
+    end
+
     def s3_bucket
       Aws::S3::Resource.new(region: settings.s3_region).bucket settings.s3_bucket_name
     end

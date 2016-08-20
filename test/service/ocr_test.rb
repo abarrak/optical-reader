@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../../service/ocr'
+require_relative '../test_helper'
 
 module OpticalReaderTest
   module ServiceTest
@@ -9,8 +7,8 @@ module OpticalReaderTest
       include OpticalReader::Service
 
       def setup
-        @eng_image = File.expand_path "test-images/sample-eng.png", File.dirname(__FILE__)
-        @ara_image = File.expand_path "test-images/sample-ara.png", File.dirname(__FILE__)
+        @eng_image = File.expand_path "../test-images/sample-eng.png", File.dirname(__FILE__)
+        @ara_image = File.expand_path "../test-images/sample-ara.png", File.dirname(__FILE__)
       end
 
       def test_recognize

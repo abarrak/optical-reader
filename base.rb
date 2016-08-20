@@ -40,7 +40,7 @@ module OpticalReader
 
     # App middleware.
     use Rack::Session::EncryptedCookie, secret: ENV['COOKIE_SECRET']
-    use Rack::Protection::AuthenticityToken
+    use Rack::Protection::AuthenticityToken unless settings.test?
     use Rack::Flash
 
     # Request types.
