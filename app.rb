@@ -103,28 +103,30 @@ module OpticalReader
       serve_page :review, nil, locals
     end
 
-    get '/export' do
-      unless session['review_me'] == 'on'
-        exit_wizard_on_invalid_state
+    [self.method(:get), self.method(:post)].each do |http_method|
+      http_method.call '/export' do
+        unless session['review_me'] == 'on'
+          exit_wizard_on_invalid_state
 
-        doc_path, lang = session['document_path'], session['language']
-        output = recognize doc_path, lang
-      else
-        unless Validator.new(params).validate_export_input
-          flash[:alert] = t 'errors.export_empty'
-          redirect to('/scan')
+          doc_path, lang = session['document_path'], session['language']
+          output = recognize doc_path, lang
+        else
+          unless Validator.new(params).validate_export_input
+            flash[:alert] = t 'errors.export_empty'
+            redirect to('/scan')
+          end
+          output = params[:reviewed_text]
         end
-        output = params[:reviewed_text]
+
+        # generate and store files.
+        txt_url, pdf_url = generate_files! output, session['language']
+        filename = txt_url.split('/').last.split('.').first
+
+        # clear all session data and serve export.
+        serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename,
+                                   image_url: session['document_path'] }
+        session.clear
       end
-
-      # generate and store files.
-      txt_url, pdf_url = generate_files! output, session['language']
-      filename = txt_url.split('/').last.split('.').first
-
-      # clear all session data and serve export.
-      serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename,
-                                 image_url: session['document_path'] }
-      session.clear
     end
 
     # give user the option to delete files manually upon finishing.

@@ -80,12 +80,12 @@
             getMsg: function(name) {
               this.store = this.store || {
                 'en': {
-                  'fileSize': 'Maximum file size is 10MB. Please choose a smaller file.',
-                  'uploading': 'Excellent! Your file started uploading ..'
+                  'fileSize': "Maximum file size is 10MB. Please choose a smaller file.",
+                  'uploading': "Excellent! uploading's started .."
                 },
                 'ar': {
                   'fileSize': 'الحجم الأقصى للملف ١٠ ميجابايت. من فضلك اختر ملفاً أصغر.',
-                  'uploading': 'ممتاز ! جاري الرفع الآن'
+                  'uploading': 'ممتاز ! جاري الرفع'
                 },
               };
 
