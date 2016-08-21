@@ -50,6 +50,7 @@ module OpticalReader
       # general settings
       set :root, File.dirname(__FILE__)
       set :website_link, 'http://opticalreader.net'
+      set :default_encoding, 'utf-8'
 
       # layout and static content.
       set :upload_path, File.join(settings.public_folder, 'ocr-uploads')
