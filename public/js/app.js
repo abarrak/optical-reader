@@ -38,7 +38,7 @@
                   e.preventDefault();
                   if (!$(this).hasClass('disabled')){
                     form.submit();
-                    Materialize.toast(uploadMsg, 4000)
+                    Materialize.toast(uploadMsg, 8000)
                   }
                 });
 

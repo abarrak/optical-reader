@@ -43,6 +43,7 @@
           </div>
           <form role="form" action="<%= to '/export' %>" method="post" accept-charset="UTF-8">
               <input name="utf8" type="hidden" value="&#x2713;" />
+              <input name="utf8emoji" type="hidden" value="😁" />
               <input type="hidden" name="<%= csrf_name %>" value="<%= csrf_token %>">
                 <div class="row">
                     <div class="section clearfix">
@@ -65,7 +66,7 @@
                             <div class="row">
                               <div class="input-field col s12">
                                 <i class="material-icons prefix">description</i>
-                                <textarea id="reviewed_text" name="reviewed_text" class="materialize-textarea"><%= output %></textarea>
+<textarea id="reviewed_text" name="reviewed_text" class="materialize-textarea" accept-charset="utf-8"><%= output %></textarea>
                                 <label for="reviewed_text"><%= t 'static_content.wizard.review.editor' %></label>
                               </div>
                             </div>
