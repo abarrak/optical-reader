@@ -130,7 +130,7 @@ module OpticalReader
         end
 
         def blank? value
-          value.strip! if value.respond_to? :strip
+          value.strip! if value.respond_to? :strip!
           value.nil? || (value.respond_to?(:empty?) ? value.empty? : value.nil?)
         end
 

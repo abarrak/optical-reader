@@ -77,12 +77,12 @@ module OpticalReader
         return serve_page :scan
       end
 
-      # store valid file and keep its name for next stages.
+      # Store valid file and keep its name for next stages.
       session['document_path'] = save_document params[:document]
       session['language'] = params[:language]
       session['review_me'] = params[:review_me]
 
-      # go next depending on 'review_me' param.
+      # Go next depending on 'review_me' param.
       if !params[:review_me].nil? && params[:review_me] == 'on'
         redirect to('/review')
       else
@@ -96,7 +96,7 @@ module OpticalReader
       doc_url, lang = session['document_path'], session['language']
       output = recognize doc_url, lang
 
-      # transform doc path to full url in dev. In production, it's already done.
+      # Transform doc path to full url in dev. In production, it's already done.
       doc_url = File.join(settings.upload_url, doc_url.split('/').last) if settings.development?
 
       locals = { output: "#{output}", document_url: doc_url }
@@ -112,7 +112,7 @@ module OpticalReader
       else
         unless Validator.new(params).validate_export_input
           flash[:alert] = t 'errors.export_empty'
-          redirect '/scan'
+          redirect to('/scan')
         end
         output = params[:reviewed_text]
       end
@@ -122,9 +122,9 @@ module OpticalReader
       filename = txt_url.split('/').last.split('.').first
 
       # clear all session data and serve export.
-      session.clear
       serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename,
                                  image_url: session['document_path'] }
+      session.clear
     end
 
     # give user the option to delete files manually upon finishing.

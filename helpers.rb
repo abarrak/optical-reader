@@ -51,7 +51,7 @@ module OpticalReader
     def exit_wizard_on_invalid_state
       unless OpticalReader::Service::Validator.new(session).validate_wizard_session
           flash[:alert] = t 'error.apology_505'
-          redirect '/scan'
+          redirect to('/scan')
       end
     end
 
@@ -174,17 +174,16 @@ module OpticalReader
 
     # Delete triggered by user.
     def delete_one! img_path, ocr_filename
-      if settings.development?
-        File.unlink img_path
-        File.unlink "#{settings.output_path}/#{ocr_filename}.pdf"
-        File.unlink "#{settings.output_path}/#{ocr_filename}.txt"
-      else
+      if settings.production?
         all = [
           { key: img_path.split('/').last },
           { key: "#{ocr_filename}.pdf" },
           { key: "#{ocr_filename}.txt" }]
-
         s3_bucket.delete_objects delete: { objects: all }
+      else
+        File.unlink img_path
+        File.unlink "#{settings.output_path}/#{ocr_filename}.pdf"
+        File.unlink "#{settings.output_path}/#{ocr_filename}.txt"
       end
     end
 
