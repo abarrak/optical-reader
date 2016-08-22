@@ -6,6 +6,14 @@ require_relative 'override'
 module OpticalReader
   class Api < Base
 
+    # right now, it's a internal api with one fixed access token, meant for our appps.
+    authentication_token = ENV['API_AUTH_TOKEN'].freeze
+
+    # before any api request, verify access token.
+    before do
+      raise AccessDeniedError unless params[:auth_token] == authentication_token
+    end
+
     ['about', 'privacy', 'scan', 'faq', 'apps'].each do |p|
       get "/#{p}" do
           serve_api_content p.to_sym
@@ -33,6 +41,11 @@ module OpticalReader
 
     error do
       serve_api_content :error
+    end
+
+    error AccessDeniedError do
+      status 403
+      serve_api_content :acceess_denied
     end
 
   end

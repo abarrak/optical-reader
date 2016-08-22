@@ -30,6 +30,7 @@ require 'aws-sdk'
 require './service/ocr'
 require './service/validator'
 require './helpers'
+require './exceptions'
 
 module OpticalReader
   class Base < Sinatra::Application
