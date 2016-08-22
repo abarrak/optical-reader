@@ -38,7 +38,6 @@ module OpticalReader
     Dotenv.load
     # set encoding.
     Encoding.default_external = "UTF-8"
-
     # reCaptcha settings.
     Recaptcha.configure do |config|
       config.public_key  = ENV['RECAPTCHA_PUBLIC_KEY']
@@ -81,6 +80,7 @@ module OpticalReader
     # App settings.
     configure :development do
       register Sinatra::Reloader
+
       enable :logging
       # custom logger.
       logger = File.new "#{settings.root}/logs/development.log", 'a+', sync: true

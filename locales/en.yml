@@ -13,6 +13,7 @@ en:
   sent: Sent
   error: Error
   not_found: Page Not Found
+  acceess_denied: Api Acceess Denied
   go_back: Go Back
   app_name: Optical Reader App
   dev_by: Developed by
@@ -94,6 +95,8 @@ en:
       body: The page you requested does not exist.
     error:
       body: Something went wrong. Sorry for the inconvenience.
+    acceess_denied:
+      body: You're not allowed to have access for the requested resource.
     footer:
       adv: Scan documents optically for text with ease.
     wizard:

@@ -14,6 +14,10 @@ module OpticalReader
       raise AccessDeniedError unless params[:auth_token] == authentication_token
     end
 
+    after do
+      headers 'Content-type' => 'application/json; charset=utf-8'
+    end
+
     ['about', 'privacy', 'scan', 'faq', 'apps'].each do |p|
       get "/#{p}" do
           serve_api_content p.to_sym
@@ -43,7 +47,7 @@ module OpticalReader
       serve_api_content :error
     end
 
-    error AccessDeniedError do
+    error OpticalReader::AccessDeniedError do
       status 403
       serve_api_content :acceess_denied
     end
