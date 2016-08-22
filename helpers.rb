@@ -21,7 +21,7 @@ module OpticalReader
       @title = page_title name.to_sym
 
       respond_to do |f|
-        f.html { erb name.to_sym, layout: layout || :_layout, locals: locals || {} }
+        f.html { erb name.to_sym, layout: layout || :_layout, locals: locals || {}, default_encoding: 'utf-8' }
         f.json { json title: @title, body: t("static_content.#{name.to_s}.body") }
       end
     end

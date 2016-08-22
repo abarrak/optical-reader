@@ -38,6 +38,9 @@ module OpticalReader
     # load environment variables.
     Dotenv.load
 
+    # set encoding.
+    Encoding.default_external = "UTF-8"
+
     # App middleware.
     use Rack::Session::EncryptedCookie, secret: ENV['COOKIE_SECRET']
     use Rack::Protection::AuthenticityToken unless settings.test?
