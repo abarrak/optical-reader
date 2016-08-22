@@ -22,16 +22,9 @@ module OpticalReader
     end
 
     # App routes and handlers.
-    ['', 'about', 'privacy', 'scan', 'faq', 'apps'].each do |p|
+    ['', 'about', 'privacy', 'scan', 'faq', 'apps', 'contact'].each do |p|
       get "/#{p}" do
           serve_page (p.empty? ? :home : p.to_sym)
-      end
-    end
-
-    get '/contact' do
-      respond_to do |f|
-        f.html { @title = page_title :contact; erb :contact, layout: :_layout }
-        f.json { json :title => t('contact'), "#{csrf_name}".to_sym => csrf_token }
       end
     end
 
@@ -41,11 +34,7 @@ module OpticalReader
 
       unless v.validate_contact_input
         @errors = v.errors
-        respond_to do |f|
-          f.html { erb :contact, layout: :_layout }
-          f.json { json title: t('contact'), errors: @errors }
-        end
-
+        return serve_page :contact
       else
         n, e, s, t, m = params[:name], params[:email], params[:subject],
                         to_contact_type(params[:type]), params[:message]
@@ -53,11 +42,8 @@ module OpticalReader
         contact_mail n, e, s, t, m
         thank_mail n, e, s
 
-        sent_notice = "#{t 'mail.thank_for_contact', name: n }"
-        respond_to do |f|
-          f.html { flash[:success] = sent_notice; redirect to('/sent') }
-          f.json { json  title: t('sent'), body: "#{sent_notice}\n#{t 'mail.tell_for_contact'}" }
-        end
+        flash[:success] = t('mail.thank_for_contact', name: n)
+        redirect to('/sent')
       end
     end
 
@@ -123,11 +109,12 @@ module OpticalReader
         # generate and store files.
         txt_url, pdf_url = generate_files! output, session['language']
         filename = txt_url.split('/').last.split('.').first
+        img_url = session['document_path'].dup
 
         # clear all session data and serve export.
-        serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename,
-                                   image_url: session['document_path'] }
         session.clear
+        serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename,
+                                   image_url: img_url }
       end
     end
 

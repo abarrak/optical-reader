@@ -5,7 +5,6 @@
 ## ----------------------------------------------------
 
 require 'sinatra/base'
-require 'sinatra/respond_with'
 require 'sinatra/json'
 require 'sinatra/reloader'
 require 'encrypted_cookie'
@@ -45,9 +44,6 @@ module OpticalReader
     use Rack::Session::EncryptedCookie, secret: ENV['COOKIE_SECRET']
     use Rack::Protection::AuthenticityToken unless settings.test?
     use Rack::Flash
-
-    # Request types.
-    respond_to :html, :json
 
     configure do
       # general settings

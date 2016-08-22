@@ -17,13 +17,15 @@ module OpticalReader
     # helper for serving static pages.
     def serve_page name, layout = nil, locals = nil
       yield if block_given?
+      @title = page_title name.to_s
+      erb name.to_sym, layout: layout || :_layout, locals: locals || {}, default_encoding: 'utf-8'
+    end
 
-      @title = page_title name.to_sym
-
-      respond_to do |f|
-        f.html { erb name.to_sym, layout: layout || :_layout, locals: locals || {}, default_encoding: 'utf-8' }
-        f.json { json title: @title, body: t("static_content.#{name.to_s}.body") }
-      end
+    # helper for serving static pages for api requests.
+    def serve_api_content name
+      yield if block_given?
+      @title = I18n.t name.to_s
+      json title: @title, body: t("static_content.#{name.to_s}.body")
     end
 
     def csrf_name
@@ -52,7 +54,7 @@ module OpticalReader
 
     def exit_wizard_on_invalid_state
       unless OpticalReader::Service::Validator.new(session).validate_wizard_session
-          flash[:alert] = t 'error.apology_505'
+          flash[:alert] = t 'errors.apology_505'
           redirect to('/scan')
       end
     end
