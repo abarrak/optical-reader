@@ -30,20 +30,19 @@ require 'aws-sdk'
 require './service/ocr'
 require './service/validator'
 require './helpers'
-require './override'
 
 module OpticalReader
-  class App < Sinatra::Application
+  class Base < Sinatra::Application
     # load environment variables.
     Dotenv.load
-
     # set encoding.
     Encoding.default_external = "UTF-8"
 
-    # App middleware.
-    use Rack::Session::EncryptedCookie, secret: ENV['COOKIE_SECRET']
-    use Rack::Protection::AuthenticityToken unless settings.test?
-    use Rack::Flash
+    # reCaptcha settings.
+    Recaptcha.configure do |config|
+      config.public_key  = ENV['RECAPTCHA_PUBLIC_KEY']
+      config.private_key = ENV['RECAPTCHA_PRIVATE_KEY']
+    end
 
     configure do
       # general settings
@@ -87,20 +86,21 @@ module OpticalReader
       set :log, Logger.new(logger)
     end
 
-    # reCaptcha settings.
-    Recaptcha.configure do |config|
-      config.public_key  = ENV['RECAPTCHA_PUBLIC_KEY']
-      config.private_key = ENV['RECAPTCHA_PRIVATE_KEY']
-    end
-
     configure :production do
       set :server, :puma
       set :raise_errors, false
       set :show_exceptions, false
     end
 
-    include Recaptcha::ClientHelper
-    include Recaptcha::Verify
+    # Shared functionality and helpers.
     include Service
+    helpers OpticalReader::Helpers
+
+    # Shared i18n routing for both app & api endpoints.
+    before '/:locale/*' do
+      locales = ['ar', 'en'].freeze
+      I18n.locale = locales.include?(params[:locale]) ? params[:locale].to_sym : :en
+      request.path_info = '/' + params[:splat][0]
+    end
   end
 end

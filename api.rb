@@ -1,15 +1,10 @@
 # encoding: UTF-8
 # 😁
 require_relative 'base'
+require_relative 'override'
 
 module OpticalReader
-  class Api < Sinatra::Application
-
-    before '/:locale/*' do
-      locales = ['ar', 'en'].freeze
-      I18n.locale = locales.include?(params[:locale]) ? params[:locale].to_sym : :en
-      request.path_info = '/' + params[:splat][0]
-    end
+  class Api < Base
 
     ['about', 'privacy', 'scan', 'faq', 'apps'].each do |p|
       get "/#{p}" do
@@ -32,7 +27,13 @@ module OpticalReader
       end
     end
 
-    helpers OpticalReader::Helpers
+    not_found do
+      serve_api_content :not_found
+    end
+
+    error do
+      serve_api_content :error
+    end
 
   end
 end

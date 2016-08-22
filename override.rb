@@ -1,5 +1,5 @@
 module OpticalReader
-  class App < Sinatra::Application
+  class App < Base
     # Override sinatra uri for i18n aware url genreation.
     def uri addr = nil, absolute = true, add_script_name = true
       return addr if addr =~ /\A[a-z][a-z0-9\+\.\-]*:/i

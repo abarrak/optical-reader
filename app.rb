@@ -1,9 +1,17 @@
 # encoding: UTF-8
 # 😁
 require_relative 'base'
+require_relative 'override'
 
 module OpticalReader
-  class App < Sinatra::Application
+  class App < Base
+    include Recaptcha::ClientHelper
+    include Recaptcha::Verify
+
+    # App middleware.
+    use Rack::Session::EncryptedCookie, secret: ENV['COOKIE_SECRET']
+    use Rack::Protection::AuthenticityToken unless settings.test?
+    use Rack::Flash
 
     # App filters.
     before do
@@ -13,12 +21,6 @@ module OpticalReader
       unless request.xhr?
          session[:csrf] ||= Rack::Protection::Base.new(self).random_string
       end
-    end
-
-    before '/:locale/*' do
-      locales = ['ar', 'en'].freeze
-      I18n.locale = locales.include?(params[:locale]) ? params[:locale].to_sym : :en
-      request.path_info = '/' + params[:splat][0]
     end
 
     # App routes and handlers.
@@ -156,9 +158,6 @@ module OpticalReader
       erb :"mail/#{m}.#{f}", layout: layout, escape_html: true,
           layout_options: { escape_html: false }, locals: { heading: t('mail.preview') }
     end
-
-    # App helpers.
-    helpers OpticalReader::Helpers
 
     # delete files that have been there for 1 hour.
     Helpers.schedule_for_cleanup
