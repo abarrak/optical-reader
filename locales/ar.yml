@@ -10,6 +10,7 @@ ar:
   scan: امسح ضوئياً
   review: راجع
   export: استلم
+  clean: إزالة
   sent: تم الإرسال
   go_back: رجوع
   error: خطأ
@@ -147,7 +148,8 @@ ar:
     carrierwave_download_error: "لم يمكن تحميل الملف."
     extension_whitelist_error: "ليس مسموح برفع ملفات ذات الصيغ %{extension}, الصيغ المسموح بها: %{allowed_types}"
     extension_blacklist_error: "ليس مسموح برفع ملفات ذات الصيغ %{extension}, الصيغ الممنوعة: %{prohibited_types}"
-    export_empty: عذراً، النص المراجع فارغ
+    export_empty: عذراً، النص المراجع فارغ.
+    clean_empty: عذراً، الملفات المحددة للحذف فارغة.
     wrong_captcha: فشل التحقق الآلي. من فضلك حاول ثانيةً.
   mail:
     contact_mail_status: "حالة بريد التواصل"

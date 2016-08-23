@@ -9,7 +9,8 @@ en:
   faq: FAQ
   scan: Scan
   review: Review
-  export: Exoport
+  export: Export
+  clean: Clean
   sent: Sent
   error: Error
   not_found: Page Not Found
@@ -149,7 +150,8 @@ en:
     carrierwave_download_error: "Couldn't download image."
     extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
     extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
-    export_empty: Sorry. It seems that text exported was empty
+    export_empty: Sorry. It seems that text exported was empty.
+    clean_empty: Sorry. It seems that files given are empty.
     wrong_captcha: reCaptcha failed. Please try again.
   mail:
     thank_for_contact: "Thank you %{name} .."

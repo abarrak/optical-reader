@@ -108,19 +108,19 @@ module OpticalReader
           output = params[:reviewed_text]
         end
 
-        # generate and store files.
+        # Generate and store files.
         txt_url, pdf_url = generate_files! output, session['language']
         filename = txt_url.split('/').last.split('.').first
         img_url = session['document_path'].dup
 
-        # clear all session data and serve export.
+        # Clear all session data and serve export.
         session['document_path'] = session['language'] = nil
         serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename,
                                    image_url: img_url }
       end
     end
 
-    # give user the option to delete files manually upon finishing.
+    # Give user the option to delete files manually upon finishing.
     post '/clean' do
       unless Validator.new(params).validate_clean_input
         flash[:alert] = t 'errors.apology_505'
@@ -156,10 +156,10 @@ module OpticalReader
           layout_options: { escape_html: false }, locals: { heading: t('mail.preview') }
     end
 
-    # delete files that have been there for 1 hour.
+    # Delete files that have been there for 1 hour.
     Helpers.schedule_for_cleanup
   end
 end
 
-# start the server if ruby file executed directly
+# Start the server if ruby file executed directly.
 OpticalReader::App.run! if __FILE__ == $0
