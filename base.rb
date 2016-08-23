@@ -80,9 +80,8 @@ module OpticalReader
     # App settings.
     configure :development do
       register Sinatra::Reloader
-
+      # logging & custom logger.
       enable :logging
-      # custom logger.
       logger = File.new "#{settings.root}/logs/development.log", 'a+', sync: true
       set :log, Logger.new(logger)
     end
