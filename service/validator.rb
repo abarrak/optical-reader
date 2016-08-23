@@ -32,6 +32,10 @@ module OpticalReader
         !blank?(@input[:reviewed_text])
       end
 
+      def validate_clean_input
+        !blank?(@input[:image_url]) && !blank?(@input[:filename])
+      end
+
       def validate_wizard_session
         # input here is the session hash.
         !blank?(@input['document_path']) && !blank?(@input['language'])
@@ -72,23 +76,6 @@ module OpticalReader
         def valid_input?
           @errors.empty? ? true : false
         end
-
-        # DELETE ME !!!
-        # def validate field, validators
-        #   val = lambda do |v, f|
-        #     if send v, @input[f]
-        #       key = format_t_key v
-        #       @errors[f] ||= []
-        #       @errors[f] << I18n.t("errors.#{key}", field: f(f))
-        #     end
-        #   end
-
-        #   unless validators.respond_to? :each
-        #     val.call validators, field
-        #   else
-        #     validators.each { |v| val.call v, field }
-        #   end
-        # end
 
         def validate_presence field
           if send :blank?, @input[field]

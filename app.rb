@@ -114,7 +114,7 @@ module OpticalReader
         img_url = session['document_path'].dup
 
         # clear all session data and serve export.
-        session.clear
+        session['document_path'] = session['language'] = nil
         serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename,
                                    image_url: img_url }
       end
@@ -122,15 +122,12 @@ module OpticalReader
 
     # give user the option to delete files manually upon finishing.
     post '/clean' do
-      v = Validator.new nil
-      pic_path, output_filename = params[:image_url], params[:filename]
-
-      unless pic_path.nil? && output_filename.nil?
-        delete_one! pic_path, output_filename
-        flash[:success] = t 'static_content.wizard.files_deleted'
+      unless Validator.new(params).validate_clean_input
+        flash[:alert] = t 'errors.apology_505'
         redirect to('scan')
       else
-        flash[:alert] = t 'errors.apology_505'
+        delete_one! params[:image_url], params[:filename]
+        flash[:success] = t 'static_content.wizard.files_deleted'
         redirect to('scan')
       end
     end
