@@ -46,6 +46,8 @@ ul.links li:first-child {
 }
 
 .page-content-area {
+  margin-left: 1em;
+  margin-right: 3em;
 }
 
 .wizard-help-text {
@@ -154,6 +156,11 @@ button i.material-icons {
   .nav-wrapper ul li {
     float: none !important;
   }
+  .page-content-area {
+    text-align: right;
+    margin-left: 0;
+    margin-right: 2em;
+  }
 }
 
 @media only screen and (max-width : 600px) {
@@ -168,5 +175,7 @@ button i.material-icons {
 
   .page-content-area {
     text-align: right;
+    margin-left: 0;
+    margin-right: 1em;
   }
 }

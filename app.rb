@@ -113,7 +113,7 @@ module OpticalReader
         filename = txt_url.split('/').last.split('.').first
         img_url = session['document_path'].dup
 
-        # Clear all session data and serve export.
+        # Clear session data and serve export.
         session['document_path'] = session['language'] = nil
         serve_page :export, nil, { txt_url: txt_url, pdf_url: pdf_url, filename: filename,
                                    image_url: img_url }

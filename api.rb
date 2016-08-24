@@ -28,9 +28,8 @@ module OpticalReader
     post '/contact' do
       v = Validator.new params
       unless v.validate_contact_input
-        @errors = v.errors
         status 400
-        return json title: t('contact'), errors: @errors
+        return json title: t('contact'), errors: v.errors
       else
         n, e, s, t, m = params[:name], params[:email], params[:subject],
                         to_contact_type(params[:type]), params[:message]
@@ -44,9 +43,8 @@ module OpticalReader
     post '/scan' do
       v = Validator.new params
       unless v.validate_scan_input
-        @errors = v.errors
         status 400
-        return json title: t('scan'), errors: @errors
+        return json title: t('scan'), errors: v.errors
       end
 
       doc_url   = save_document params[:document]
@@ -64,11 +62,9 @@ module OpticalReader
     end
 
     post '/export' do
-      v = Validator.new(params)
-      # FixMe: refactor export validation & language choice.
-      if !v.validate_export_input || v.send(:blank?, params[:language])
+      unless !Validator.new(params).validate_export_input true
         status 400
-        return json title: t('export'), error: t('errors.export_empty')
+        return json title: t('export'), errors: v.errors
       end
       output, lang = params[:reviewed_text], params[:language]
 

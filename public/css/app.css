@@ -47,12 +47,12 @@ p {
 
 .page-content-area {
   margin-top: 3em;
-  margin-bottom: 3em;
+  margin-bottom: 0.5em;
+  margin-left: 4em;
   padding: 0 10em;
   font-family: Georgia, Roboto, sans-serif, Arial;
   font-size: 1.2em;
   color: #673501;
-  text-indent: 3em;
   text-align: justify;
   white-space: pre-wrap;
   line-height: 1.9em !important;
@@ -571,6 +571,7 @@ textarea {
 
   .page-content-area {
     padding: 0 4em;
+    margin-left: 2em;
   }
 }
 
@@ -603,6 +604,7 @@ textarea {
 
   .page-content-area {
     padding: 0 1em;
+    margin-left: 1em;
     text-align: left;
   }
 }

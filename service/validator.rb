@@ -18,7 +18,7 @@ module OpticalReader
 
         # process language input.
         validate_presence :language
-        validate_choice :language, :choice?, OCR.langs
+        validate_choice   :language, :choice?, OCR.langs
         # process file input.
         validate_presence :document
         if !@input[:document].nil? && !@input[:document][:tempfile].nil?
@@ -28,8 +28,18 @@ module OpticalReader
         valid_input?
       end
 
-      def validate_export_input
-        !blank?(@input[:reviewed_text])
+      # export context is different for api route.
+      # We don't have session which has its own validation as in app.rb. hence the branching.
+      def validate_export_input api = false
+        if api
+          reset_errors!
+          validate_presence :language
+          validate_choice   :language, :choice?, OCR.langs
+          validate_presence :reviewed_text
+          valid_input?
+        else
+          !blank?(@input[:reviewed_text])
+        end
       end
 
       def validate_clean_input
@@ -46,23 +56,23 @@ module OpticalReader
 
         # process name
         validate_presence :name
-        validate_length :name, :longer?, 80
-        validate_length :name, :shorter?, 3
+        validate_length   :name, :longer?, 80
+        validate_length   :name, :shorter?, 3
         # process subject.
         validate_presence :subject
-        validate_length :subject, :longer?, 150
-        validate_length :subject, :shorter?, 6
+        validate_length   :subject, :longer?, 150
+        validate_length   :subject, :shorter?, 6
         # process email.
         validate_presence :email
-        validate_email :email
-        validate_length :email, :longer?, 150
-        validate_length :email, :shorter?, 8
+        validate_email    :email
+        validate_length   :email, :longer?, 150
+        validate_length   :email, :shorter?, 8
         # process type.
-        validate_choice :type, :choice?, ['1', '2', '3', '4']
+        validate_choice   :type, :choice?, ['1', '2', '3', '4']
         # process Message.
         validate_presence :message
-        validate_length :message, :longer?, 10000
-        validate_length :message, :shorter?, 10
+        validate_length   :message, :longer?, 10000
+        validate_length   :message, :shorter?, 10
 
         valid_input?
       end

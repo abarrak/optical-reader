@@ -57,41 +57,57 @@ en:
         something here for json consumer !
     about:
       body: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus odio, mattis vel ipsum quis, molestie accumsan nibh. Phasellus at fermentum massa. Nulla a turpis quis purus iaculis rutrum. Nam maximus interdum dolor, a varius libero volutpat sed.
-        Vestibulum metus lacus, malesuada ut fermentum eget, molestie eget mauris. Vivamus vitae leo in lorem commodo molestie. Aliquam vestibulum porta massa nec sodales. Mauris consectetur congue tellus, sed dictum augue posuere ut. Quisque varius non leo
-        vel aliquet.
+        Optical reader is an online <abbr title="optical character recognition">OCR</abbr> service that aims to be a convenient tool for the visitors in order to scan picture files, and extract text from them as accurate as possible.
 
-        Aliquam malesuada, ligula id gravida placerat, orci lectus interdum mauris, ac maximus tellus nunc in felis. Duis fermentum blandit mi vitae aliquet. Phasellus ligula ante, venenatis quis consequat id, dignissim non lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce dignissim sapien vel nisi dignissim dignissim. Donec luctus mi dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ligula ante, bibendum id feugiat ut, finibus quis libero. Maecenas tortor lacus, efficitur a elit non, cursus rutrum leo.
+        The requirements that the user needs to specify are all pointed out in the user interface of the wizard page. Namely, the language, the image needed to be scanned, and the preference of whether to take a profiling step through "review me" option before getting the final text.
 
-        Donec aliquam dolor libero. Nulla nec risus turpis. Donec at elit semper, commodo purus suscipit, ornare tellus. Morbi molestie urna non orci tincidunt cursus. Etiam viverra urna vel ante dapibus molestie nec a diam. Duis vestibulum magna neque, sit amet pellentesque sapien venenatis sit amet. Donec sed scelerisque nunc. Sed eleifend, ex sit amet iaculis laoreet, sem neque finibus arcu, sed tempor nisl sapien vitae lacus. Suspendisse gravida eget elit a elementum. Nunc eu dolor at urna suscipit malesuada. Proin pharetra dui eget lorem ultricies, vel ultricies metus rutrum. Sed facilisis ultricies arcu ac consequat.
+        Most popular image formats are supports by Optical Reader, such as: PNG, JPG, GIF, BMP, and TIFF.
+        Please ensure that your file upload are within these type of image.
 
-        Suspendisse fermentum felis dictum mauris scelerisque, et consequat justo vehicula. Aenean et velit id nisi semper dictum. Suspendisse gravida est ac neque pretium malesuada nec sit amet mi. Aenean fringilla, nulla sit amet rutrum mattis, erat dui gravida quam, vitae maximus turpis purus ac magna. Duis sapien justo, porta vitae efficitur id, hendrerit nec odio. Donec ornare lacus sit amet ligula rutrum, at porta est lacinia. Donec nec metus in ligula venenatis convallis.
+        It's no secret that Optical Reader isn't a new invention. Optical Reader is powered by the dominant OCR software engine in the open source world, <a href="https://en.wikipedia.org/wiki/Tesseract_(software)" target="_blank">Tesseract</a>. As a matter of fact, Optical Reader is merely a web user interface for Tesseract.
+
+        For more information about usage and the service, please consult the FAQ page.
     faq:
       body: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus odio, mattis vel ipsum quis, molestie accumsan nibh. Phasellus at fermentum massa. Nulla a turpis quis purus iaculis rutrum. Nam maximus interdum dolor, a varius libero volutpat sed.
-        Vestibulum metus lacus, malesuada ut fermentum eget, molestie eget mauris. Vivamus vitae leo in lorem commodo molestie. Aliquam vestibulum porta massa nec sodales. Mauris consectetur congue tellus, sed dictum augue posuere ut. Quisque varius non leo
-        vel aliquet.
+        <b>Q: What is this ?</b>
+        <b>A:</b> Optical Reader is simply an OCR service, that is mean for you to get the text content of document images.
 
-        Aliquam malesuada, ligula id gravida placerat, orci lectus interdum mauris, ac maximus tellus nunc in felis. Duis fermentum blandit mi vitae aliquet. Phasellus ligula ante, venenatis quis consequat id, dignissim non lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce dignissim sapien vel nisi dignissim dignissim. Donec luctus mi dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ligula ante, bibendum id feugiat ut, finibus quis libero. Maecenas tortor lacus, efficitur a elit non, cursus rutrum leo.
+        <b>Q: Can I review the OCR result ?</b>
+        <b>A:</b> Yes. Turn review option on to get a simple editor for changes and correction before downloading extracted text.
 
-        Donec aliquam dolor libero. Nulla nec risus turpis. Donec at elit semper, commodo purus suscipit, ornare tellus. Morbi molestie urna non orci tincidunt cursus. Etiam viverra urna vel ante dapibus molestie nec a diam. Duis vestibulum magna neque, sit amet pellentesque sapien venenatis sit amet. Donec sed scelerisque nunc. Sed eleifend, ex sit amet iaculis laoreet, sem neque finibus arcu, sed tempor nisl sapien vitae lacus. Suspendisse gravida eget elit a elementum. Nunc eu dolor at urna suscipit malesuada. Proin pharetra dui eget lorem ultricies, vel ultricies metus rutrum. Sed facilisis ultricies arcu ac consequat.
+        <b>Q: Is it possible to have a searchable PDF output ?</b>
+        <b>A:</b> Of course, Once you finished, you'll be given the option for both .txt and .pdf downloads.
+
+        <b>Q: I want the document images and structure to be preserved after scanning. Is that possible ?</b>
+        <b>A:</b> Of course, <u><em>But</em></u> You need to turn reviewing option off. This will keep all non textual data and preserve the text positions in the document.
+
+        <b>Q: How much does it cost ?</b>
+        <b>A:</b> None. Optical Reader is a free service.
+
+        <b>Q: The OCR result aren't very satisfying. Why is that ?</b>
+        <b>A:</b> There are two aspects regarding OCR'ing outcome.
+        First, The processed document image. The OCR makes most of the needed operations to enhacne and transform them for better recognition, which gives very well results in usual cases. However, that might not work as expected if your image is very noisy or has bad quality. Try to submit clear images with a
+
+        Second, It's worth mentioning that the result qulity varies in accodance to the target language. For English the OCR (Tesseract engine which Optical Reader relies on) is very optimaized and gives the most satisfying results if presented with good input documents. For Arabic, the author did their best to adapt the OCR for arabic texts throughout the training process for various fonts. For other languages, Optical Reader depends on the official training done by Tesseract development team.
     privacy:
       body: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus odio, mattis vel ipsum quis, molestie accumsan nibh. Phasellus at fermentum massa. Nulla a turpis quis purus iaculis rutrum. Nam maximus interdum dolor, a varius libero volutpat sed.
-        Vestibulum metus lacus, malesuada ut fermentum eget, molestie eget mauris. Vivamus vitae leo in lorem commodo molestie. Aliquam vestibulum porta massa nec sodales. Mauris consectetur congue tellus, sed dictum augue posuere ut. Quisque varius non leo
-        vel aliquet.
+        We encourage users to NOT use sensitive or credinetial data through throughout the network, and consider other alternatives such as local OCR software.
 
-        Aliquam malesuada, ligula id gravida placerat, orci lectus interdum mauris, ac maximus tellus nunc in felis. Duis fermentum blandit mi vitae aliquet. Phasellus ligula ante, venenatis quis consequat id, dignissim non lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce dignissim sapien vel nisi dignissim dignissim. Donec luctus mi dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ligula ante, bibendum id feugiat ut, finibus quis libero. Maecenas tortor lacus, efficitur a elit non, cursus rutrum leo.
+        Optical Reader does its best to keep your OCR process private and secure by following the most security practices.
 
-        Donec aliquam dolor libero. Nulla nec risus turpis. Donec at elit semper, commodo purus suscipit, ornare tellus. Morbi molestie urna non orci tincidunt cursus. Etiam viverra urna vel ante dapibus molestie nec a diam. Duis vestibulum magna neque, sit amet pellentesque sapien venenatis sit amet. Donec sed scelerisque nunc. Sed eleifend, ex sit amet iaculis laoreet, sem neque finibus arcu, sed tempor nisl sapien vitae lacus. Suspendisse gravida eget elit a elementum. Nunc eu dolor at urna suscipit malesuada. Proin pharetra dui eget lorem ultricies, vel ultricies metus rutrum. Sed facilisis ultricies arcu ac consequat.
+        Your uploaded image are only hosted to perform OCR work,  then you'll be given the option to delete all files (image and result output) perminantly after the session. If not deleted, they're will be recycled Automatically for deletion after 30 minutes anyway.
+
+        If you witnessed any issuess regarding security or privacy, please reach out to us via the contact page.
     apps:
       android: Android Mobile App
       ios: iOS Mobile App
       go_to_app_store: Open in app store
       go_to_play: Open in google play
       body: |
-        Some apps are coming soon !
-        Some apps are coming soon !
+        The website http://opticalreader.net is suited for mobile devices.
+        However, apps exists ..
+        Android app link:
+        iOS app link:
     not_found:
       body: The page you requested does not exist.
     error:
