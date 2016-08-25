@@ -104,8 +104,6 @@ en:
       go_to_app_store: Open in app store
       go_to_play: Open in google play
       body: |
-        The website http://opticalreader.net is suited for mobile devices.
-        However, apps exists ..
         Android app link:
         iOS app link:
     not_found:

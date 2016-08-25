@@ -62,12 +62,12 @@ module OpticalReader
     end
 
     post '/export' do
-      unless !Validator.new(params).validate_export_input true
+      unless Validator.new(params).validate_export_input true
         status 400
         return json title: t('export'), errors: v.errors
       end
-      output, lang = params[:reviewed_text], params[:language]
 
+      output, lang = params[:reviewed_text], params[:language]
       txt_url, pdf_url = generate_files! output, lang
 
       json title: t('export'), output: output, language: lang, txt_url: txt_url, pdf_url: pdf_url

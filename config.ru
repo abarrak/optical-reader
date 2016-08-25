@@ -1,3 +1,10 @@
 require './app'
+require './api'
 
-run OpticalReader::App
+map '/' do
+  run OpticalReader::App
+end
+
+map '/api/v1' do
+  run OpticalReader::Api
+end
