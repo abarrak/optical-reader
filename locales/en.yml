@@ -88,12 +88,12 @@ en:
         <b>A:</b> There are two aspects regarding OCR'ing outcome.
         First, The processed document image. The OCR makes most of the needed operations to enhacne and transform them for better recognition, which gives very well results in usual cases. However, that might not work as expected if your image is very noisy or has bad quality. Try to submit clear images with a
 
-        Second, It's worth mentioning that the result qulity varies in accodance to the target language. For English the OCR (Tesseract engine which Optical Reader relies on) is very optimaized and gives the most satisfying results if presented with good input documents. For Arabic, the author did their best to adapt the OCR for arabic texts throughout the training process for various fonts. For other languages, Optical Reader depends on the official training done by Tesseract development team.
+        Second, It's worth mentioning that the result qulity varies in accodance to the target language. For English the OCR (Tesseract) software is very optimaized, and gives satisfying results if presented with documents of good quality. For Arabic, the author did their best to adapt the OCR for arabic texts throughout the training process for various fonts. For other languages, Optical Reader depends on the official training done by Tesseract development team.
     privacy:
       body: |
-        We encourage users to NOT use sensitive or credinetial data through throughout the network, and consider other alternatives such as local OCR software.
+        We encourage users to NOT use sensitive or credinetial data throughout the network, and consider other alternatives such as local OCR software.
 
-        Optical Reader does its best to keep your OCR process private and secure by following the most security practices.
+        Optical Reader does its best to keep your OCR process private and secure by following security best practices.
 
         Your uploaded image are only hosted to perform OCR work,  then you'll be given the option to delete all files (image and result output) perminantly after the session. If not deleted, they're will be recycled Automatically for deletion after 30 minutes anyway.
 

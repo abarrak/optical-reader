@@ -7,9 +7,10 @@ module OpticalReader
       attr_accessor :lang
       attr_reader :text
 
-      def initialize doc_path, lang
+      def initialize doc_path, lang, pdf_only = false
         @doc_path = doc_path
         @lang = lang
+        @pdf_only = pdf_only
         validate_params
         RTesseract.configure do |config|
           config.processor = "mini_magick"
@@ -24,7 +25,11 @@ module OpticalReader
 
       def recognize
         validate_params
-        RTesseract.new(@doc_path, lang: @lang).to_s
+        unless @pdf_only
+          RTesseract.new(@doc_path, lang: @lang).to_s
+        else
+          RTesseract.new(@doc_path, lang: @lang).to_pdf
+        end
       end
 
       def self.langs
