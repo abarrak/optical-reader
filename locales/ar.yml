@@ -106,7 +106,7 @@ ar:
       document: الملف
       image: الصورة
       next: التالي
-      supported_types: "الملفات المسموح بها: .jpg | .jpeg | .png | .gif"
+      supported_types: "الملفات المسموح بها: <br> .jpg | .jpeg | .png | .gif | .bmp | .tiff"
       maximum_size: "الححم الأقصى للملف: 10 ميجابايت"
       review_me:
         option1: نعم

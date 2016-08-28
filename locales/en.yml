@@ -122,7 +122,7 @@ en:
       document: Document
       image: Image
       next: Next
-      supported_types: "Supported Types: .jpg | .jpeg | .png | .gif"
+      supported_types: "Supported Types: <br> .jpg | .jpeg | .png | .gif | .bmp | .tiff"
       maximum_size: "Maximum Upload Size: { 10 MB }."
       review_me:
         option1: 'No'
@@ -160,10 +160,6 @@ en:
     choice: "Please choose a valid %{field} from the list."
     exceed_size: "File exceeds the maximum allowed size."
     not_image: "Submitted file is not image."
-    carrierwave_integrity_error: "Not an image."
-    carrierwave_download_error: "Couldn't download image."
-    extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
-    extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
     export_empty: Sorry. It seems that text exported was empty.
     clean_empty: Sorry. It seems that files given are empty.
     wrong_captcha: reCaptcha failed. Please try again.

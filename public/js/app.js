@@ -36,7 +36,7 @@
                 var uploadMsg = this.getMsg('uploading');
                 nextButton.click(function(e){
                   e.preventDefault();
-                  if (!$(this).hasClass('disabled')){
+                  if (!$(this).hasClass('disabled') && fileUploadInput.files.length > 0){
                     form.submit();
                     Materialize.toast(uploadMsg, 8000)
                   }
