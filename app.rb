@@ -99,17 +99,19 @@ module OpticalReader
           exit_wizard_on_invalid_state
 
           doc_path, lang = session['document_path'], session['language']
-          output = recognize doc_path, lang
+          output      = recognize doc_path, lang
+          output_pdf  = recognize doc_path, lang, :pdf
         else
           unless Validator.new(params).validate_export_input
             flash[:alert] = t 'errors.export_empty'
             redirect to('/scan')
           end
           output = params[:reviewed_text]
+          output_pdf = nil
         end
 
         # Generate and store files.
-        txt_url, pdf_url = generate_files! output, session['language']
+        txt_url, pdf_url = generate_files! output, session['language'], output_pdf
         filename = txt_url.split('/').last.split('.').first
         img_url = session['document_path'].dup
 

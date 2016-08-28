@@ -4,6 +4,9 @@
 #   :author:  Abdullah Barrak (github.com/abarrak).
 ## ----------------------------------------------------
 
+require 'bundler/setup'
+Bundler.setup(:default)
+
 require 'sinatra/base'
 require 'sinatra/json'
 require 'sinatra/reloader'
@@ -15,6 +18,7 @@ require 'securerandom'
 require 'json'
 require 'yaml'
 require 'tempfile'
+require 'fileutils'
 require 'mail'
 require 'i18n'
 require 'i18n/backend/fallbacks'

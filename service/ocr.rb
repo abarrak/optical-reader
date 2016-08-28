@@ -28,7 +28,7 @@ module OpticalReader
         unless @pdf_only
           RTesseract.new(@doc_path, lang: @lang).to_s
         else
-          RTesseract.new(@doc_path, lang: @lang).to_pdf
+          RTesseract.new(@doc_path, lang: @lang, options: :pdf).to_pdf
         end
       end
 

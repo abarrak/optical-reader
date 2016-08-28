@@ -65,7 +65,11 @@ module OpticalReader
 
     def recognize doc_path, lang = :eng, format = :txt
       doc_path = MiniMagick::Image.open doc_path if settings.production?
-      Service::OCR.new(doc_path, lang).recognize
+      if format == :pdf
+        Service::OCR.new(doc_path, lang, true).recognize
+      else
+        Service::OCR.new(doc_path, lang).recognize
+      end
     end
 
     # Upload image to S3 or filesystem according to environment and return its link or path.
@@ -86,10 +90,20 @@ module OpticalReader
       end
     end
 
-    def generate_files! content, language
+    def generate_files! content, language, generated_pdf_path
       name = unique_name
+
+      # always generate txt file.
       txt_url = generate_txt_file "#{name}.txt", content
-      pdf_url = generate_pdf_file "#{name}.pdf", content, language
+      # if we have tesseract pdf, then just ensure permanent version of it.
+      unless generated_pdf_path
+        pdf_url = generate_pdf_file "#{name}.pdf", content, language
+      else
+        pdf_url = copy_temp_pdf "#{name}.pdf", generated_pdf_path
+        # remove tmp file.
+        File.delete(generated_pdf_path)
+      end
+      
       [txt_url, pdf_url]
     end
 
@@ -129,6 +143,19 @@ module OpticalReader
       else
         path = File.join settings.output_path, name
         pdf_generator.call path, content, language
+        File.join settings.output_url, name
+      end
+    end
+
+    # Prsist a temporary native pdf.
+    def copy_temp_pdf name, temp_pdf_path
+      if settings.production?
+        pdf_obj = s3_bucket.object(name)
+        pdf_obj.upload_file temp_pdf_path
+        pdf_obj.public_url
+      else
+        path = File.join settings.output_path, name
+        FileUtils.cp temp_pdf_path, path
         File.join settings.output_url, name
       end
     end
