@@ -119,6 +119,7 @@ en:
       scan_step_1: Please choose a the language and document image for processing.
       scan_step_2: Do you want to review the extracted text ?
       scan_step_3: Automatic Verification.
+      skip_review_notice: To keep document images, colors, and structure, turn review off.
       document: Document
       image: Image
       next: Next
