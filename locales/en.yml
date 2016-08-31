@@ -64,16 +64,16 @@ en:
         Most popular image formats are supports by Optical Reader, such as: PNG, JPG, GIF, BMP, and TIFF.
         Please ensure that your file upload are within these type of image.
 
-        It's no secret that Optical Reader isn't a new invention. Optical Reader is powered by the dominant OCR software engine in the open source world, <a href="https://en.wikipedia.org/wiki/Tesseract_(software)" target="_blank">Tesseract</a>. As a matter of fact, Optical Reader is merely a web user interface for Tesseract.
+        It's no secret that Optical Reader isn't a new invention. Optical Reader is powered by the dominant OCR software engine in the open source world, <a href="https://en.wikipedia.org/wiki/Tesseract_(software)" target="_blank">Tesseract</a>. As a matter of fact, Optical Reader is merely a web-based user interface for Tesseract.
 
         For more information about usage and the service, please consult the FAQ page.
     faq:
       body: |
         <b>Q: What is this ?</b>
-        <b>A:</b> Optical Reader is simply an OCR service, that is mean for you to get the text content of document images.
+        <b>A:</b> Optical Reader is simply an OCR service, that is a mean for you to get the text content of document images.
 
         <b>Q: Can I review the OCR result ?</b>
-        <b>A:</b> Yes. Turn review option on to get a simple editor for changes and correction before downloading extracted text.
+        <b>A:</b> Yes. Turn review option on to get a simple editor for changes and correction before downloading the extracted text.
 
         <b>Q: Is it possible to have a searchable PDF output ?</b>
         <b>A:</b> Of course, Once you finished, you'll be given the option for both .txt and .pdf downloads.
@@ -86,17 +86,16 @@ en:
 
         <b>Q: The OCR result aren't very satisfying. Why is that ?</b>
         <b>A:</b> There are two aspects regarding OCR'ing outcome.
-        First, The processed document image. The OCR makes most of the needed operations to enhacne and transform them for better recognition, which gives very well results in usual cases. However, that might not work as expected if your image is very noisy or has bad quality. Try to submit clear images with a
+        First, The processed document image. The OCR makes most of the needed operations to enhacne and transform them for better recognition, which gives very well results in usual cases. However, that might not work as expected if your image is very noisy or has bad quality, so try to submit clear images with a good resolution.
 
-        Second, It's worth mentioning that the result qulity varies in accodance to the target language. For English the OCR (Tesseract) software is very optimaized, and gives satisfying results if presented with documents of good quality. For other languages, Optical Reader depends on the official training setup that has been done by Tesseract development team.
+        Second, It's worth mentioning that the result quality varies in accordance to the target language. For English, the OCR (Tesseract) software is very optimaized, and gives satisfying results if presented with documents of good quality. For other languages, Optical Reader depends on the official training setup that has been done by Tesseract development team.
     privacy:
       body: |
-        We encourage users to NOT use sensitive or credinetial data throughout the network, and consider other alternatives such as local OCR software.
+        We encourage users to NOT use sensitive or credinetial data files for OCR throughout the network, and consider other alternatives such as local OCR software.
 
         Optical Reader does its best to keep your OCR process private and secure by following security best practices.
 
-        Your uploaded image are only hosted to perform OCR work,  then you'll be given the option to delete all files (image and result output) perminantly after the session. If not deleted, they're will be recycled Automatically for deletion after 30 minutes anyway.
-
+        Your uploaded image are only hosted temporarily to perform OCR work,  then you'll be given the option to delete all files (image and result output) perminantly after the session. If not deleted, they're will be recycled Automatically for deletion after 30 minutes anyway.
         If you witnessed any issuess regarding security or privacy, please reach out to us via the contact page.
     apps:
       android: Android Mobile App

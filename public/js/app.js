@@ -38,6 +38,7 @@
                   e.preventDefault();
                   if (!$(this).hasClass('disabled') && fileUploadInput.get(0).files.length > 0){
                     form.submit();
+                    nextButton.addClass('disabled');
                     Materialize.toast(uploadMsg, 8000)
                   }
                 });

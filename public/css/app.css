@@ -340,7 +340,7 @@ textarea {
 }
 
 .wizard-notice-icon {
-  display: inline-block;  
+  display: inline-block;
   position: relative;
   top: -30%;
   transform: translateY(30%) !important;
@@ -423,7 +423,7 @@ textarea {
    transition: background-color 25ms ease-out, border-color 25ms ease-out, opacity 250ms ease-out;
    margin: 0.5em;
    padding: 0.5em 0.75em;
-   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
  }
 
  .resp-sharing-button a {

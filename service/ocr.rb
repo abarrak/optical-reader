@@ -35,6 +35,12 @@ module OpticalReader
       def self.langs
         ['ara', 'eng'].freeze
       end
+
+      def self.lang? lang
+      end
+
+      def self.rtl? lang
+      end
     end
   end
 end
