@@ -12,3 +12,6 @@ logs/*
 # assets
 public/ocr-uploads/*
 public/ocr-output/*
+
+# let's encrypt key
+key.pem
