@@ -13,5 +13,5 @@ logs/*
 public/ocr-uploads/*
 public/ocr-output/*
 
-# let's encrypt key
+# let's encrypt key, if used.
 key.pem
