@@ -1,0 +1,17 @@
+branch-defaults:
+  default:
+    environment: opticalreader-main
+  master:
+    environment: opticalreader-main
+    group_suffix: null
+global:
+  application_name: opticalreader
+  default_ec2_keyname: aws-eb
+  default_platform: Ruby 2.2 (Puma)
+  default_region: us-east-1
+  profile: null
+  sc: git
+
+packages:
+  yum:
+git: []
