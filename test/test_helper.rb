@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'rack/test'
 require_relative '../app'
+require_relative '../api'
 
 module OpticalReaderTest
   module Helper
