@@ -1,4 +1,9 @@
+require 'tmpdir'
+
 ENV['RACK_ENV'] = 'test'
+ENV['TMPDIR'] = Dir.tmpdir if ENV['TRAVIS']
+puts Dir.tmpdir if ENV['TRAVIS']
+
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'rack/test'
