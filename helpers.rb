@@ -103,7 +103,7 @@ module OpticalReader
         # remove tmp file.
         File.delete(generated_pdf_path)
       end
-      
+
       [txt_url, pdf_url]
     end
 
@@ -166,10 +166,12 @@ module OpticalReader
         font_file = "#{settings.public_folder}/fonts/Arial.ttf"
         Prawn::Document.generate path do
           content.encode! Encoding.find('UTF-8'), { invalid: :replace, undef: :replace, replace: '' }
-          if lang == 'ara'
+
+          if OCR.rtl? lang
             text_direction :rtl
-            content = content.connect_arabic_letters.force_encoding("UTF-8")
+            content = content.connect_arabic_letters.force_encoding("UTF-8") if lang.to_s == 'ara'
           end
+
           font font_file
           text content
         end

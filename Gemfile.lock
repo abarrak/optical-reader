@@ -1,13 +1,12 @@
 GIT
-  remote: git://github.com/abarrak/rtesseract.git
-  revision: fbf471167bdc46fb0b4268329d11a37b5d4111b5
-  branch: add-pdf-support
+  remote: git://github.com/dannnylo/rtesseract.git
+  revision: 1ea9f20582e4656fd0c068d5184f0a49848ccb67
   specs:
     rtesseract (2.0.1)
       nokogiri
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     addressable (2.4.0)
     arabic-letter-connector (0.1.1)
