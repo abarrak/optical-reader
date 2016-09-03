@@ -167,7 +167,7 @@ module OpticalReader
         Prawn::Document.generate path do
           content.encode! Encoding.find('UTF-8'), { invalid: :replace, undef: :replace, replace: '' }
 
-          if OCR.rtl? lang
+          if Service::OCR.rtl? lang
             text_direction :rtl
             content = content.connect_arabic_letters.force_encoding("UTF-8") if lang.to_s == 'ara'
           end

@@ -47,7 +47,7 @@ module OpticalReader
       end
 
       def self.rtl? l
-        OCR.RTL_LANGS.include? l
+        OCR::RTL_LANGS.include? l
       end
     end
 
