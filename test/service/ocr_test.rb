@@ -34,6 +34,8 @@ module OpticalReaderTest
       end
 
       def test_recognize_arabic
+        skip 'Travis CI does not have arabic tessdata .. skip.' if ENV['TRAVIS']
+
         ocr = OCR.new @ara_image, :ara
         assert_equal ocr.doc_path, @ara_image
         assert_equal ocr.lang, :ara

@@ -11,7 +11,8 @@ module OpticalReaderTest
     end
 
     def setup
-      @lang = ['eng', 'ara'].sample
+      # Travis CI does not have arabic tessdata .. don't make it random.
+      @lang = ENV['TRAVIS'] ? 'eng' : ['eng', 'ara'].sample
       @acceptable = {
         'eng' => File.expand_path("test-images/sample-eng.png", File.dirname(__FILE__)),
         'ara' => File.expand_path("test-images/sample-ara.png", File.dirname(__FILE__))
