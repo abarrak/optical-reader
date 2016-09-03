@@ -2,8 +2,8 @@
 An open source web-based user interface for Tesseract OCR engine.
 
 
-## Author 
-Abdullah Barrak
+## Author
+Abdullah Barrak.
 
 
 ## License

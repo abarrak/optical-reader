@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/abarrak/rtesseract.git
-  revision: f96c9a662250242c4a7e9cd76ae2625d1e731990
+  revision: fbf471167bdc46fb0b4268329d11a37b5d4111b5
   branch: add-pdf-support
   specs:
     rtesseract (2.0.1)
@@ -11,12 +11,12 @@ GEM
   specs:
     addressable (2.4.0)
     arabic-letter-connector (0.1.1)
-    aws-sdk (2.5.3)
-      aws-sdk-resources (= 2.5.3)
-    aws-sdk-core (2.5.3)
+    aws-sdk (2.5.8)
+      aws-sdk-resources (= 2.5.8)
+    aws-sdk-core (2.5.8)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.5.3)
-      aws-sdk-core (= 2.5.3)
+    aws-sdk-resources (2.5.8)
+      aws-sdk-core (= 2.5.8)
     backports (3.6.8)
     daemons (1.2.4)
     dotenv (2.1.1)
@@ -56,7 +56,7 @@ GEM
     rake (11.2.2)
     recaptcha (3.3.0)
       json
-    rufus-scheduler (3.2.1)
+    rufus-scheduler (3.2.2)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
