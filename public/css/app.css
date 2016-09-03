@@ -320,6 +320,12 @@ textarea {
   border-bottom: 1px dotted #5d4037;
 }
 
+.scan-lang-label label {
+  text-align: center;
+  left: inherit !important;
+  right: inherit !important;
+}
+
 .wizard-help-text {
   text-align: center;
   padding-bottom: 0.5em;

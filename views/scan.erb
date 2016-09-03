@@ -50,10 +50,15 @@
                         <span class="wizard-asterisk">*</span>
                         <%= t 'static_content.wizard.scan_step_1' %>
                     </p>
-                    <input type="radio" id="eng" class="with-gap" name="language" value="eng" checked>
-                    <label for="eng"><%= t 'english' %></label>&nbsp; &nbsp; &nbsp;
-                    <input type="radio" id="ara" class="with-gap" name="language" value="ara">
-                    <label for="ara"><%= t 'arabic' %></label>
+                    <div class="input-field col m6 push-m3 s12">
+                        <p class="center scan-lang-label">
+                            <label for="language"><%= t 'fields.language' %></label>
+                        </p>
+                        <select id="language" name="language">
+                        <%= select_options_for_ocr_langs params[:language] %>
+                        </select>
+                        <%= erb :_error_messages, layout: false, locals: { error_object: @errors[:type] } %>
+                    </div>
                     <%= erb :_error_messages, layout: false, locals: { error_object: @errors[:language] } %>
                 </div>
                 <div class="row">

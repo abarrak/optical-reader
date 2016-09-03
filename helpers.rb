@@ -24,7 +24,7 @@ module OpticalReader
     # helper for serving static pages for api requests.
     def serve_api_content name
       yield if block_given?
-      @title = I18n.t name.to_s
+      @title = t name.to_s
       json title: @title, body: t("static_content.#{name.to_s}.body")
     end
 
@@ -50,6 +50,19 @@ module OpticalReader
 
     def sharify title
       title.sub '|', t('on_word')
+    end
+
+    def build_select_options param, options
+      options.each do |value, text|
+        yield "<option value=\"#{value}\" #{'selected' if param == value}>#{text}</option>\n"
+      end
+    end
+
+    def select_options_for_ocr_langs param
+      select_list = ""
+      options = Service::OCR::LANGS.zip(t 'ocr_langs').to_h
+      build_select_options(param, options) { |list_item| select_list << list_item }
+      select_list
     end
 
     def exit_wizard_on_invalid_state
