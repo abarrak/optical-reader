@@ -17,10 +17,6 @@ module OpticalReader
     before do
       headers 'Content-type' => 'text/html; charset=utf-8'
       @errors = {}
-      # ensure csrf token.
-      unless request.xhr?
-         session[:csrf] ||= Rack::Protection::Base.new(self).random_string
-      end
     end
 
     # App routes and handlers.

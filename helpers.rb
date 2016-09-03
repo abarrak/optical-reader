@@ -33,7 +33,7 @@ module OpticalReader
     end
 
     def csrf_token
-      session[:csrf]
+      session[:csrf] = Rack::Protection::Base.new(self).random_string
     end
 
     def unique_name
