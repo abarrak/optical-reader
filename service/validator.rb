@@ -18,7 +18,7 @@ module OpticalReader
 
         # process language input.
         validate_presence :language
-        validate_choice   :language, :choice?, OCR.langs
+        validate_choice   :language, :choice?, OCR::LANGS
         # process file input.
         validate_presence :document
         if !@input[:document].nil? && !@input[:document][:tempfile].nil?
@@ -34,7 +34,7 @@ module OpticalReader
         if api
           reset_errors!
           validate_presence :language
-          validate_choice   :language, :choice?, OCR.langs
+          validate_choice   :language, :choice?, OCR::LANGS
           validate_presence :reviewed_text
           valid_input?
         else

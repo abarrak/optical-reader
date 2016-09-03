@@ -35,6 +35,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_magick (4.5.1)
     mini_portile2 (2.1.0)
+    minitest (5.9.0)
     multi_json (1.12.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -52,6 +53,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (11.2.2)
     recaptcha (3.3.0)
       json
     rufus-scheduler (3.2.1)
@@ -86,10 +88,12 @@ DEPENDENCIES
   i18n
   mail
   mini_magick
+  minitest
   prawn
   puma
   rack-flash3
   rack-test
+  rake
   recaptcha
   rtesseract!
   rufus-scheduler

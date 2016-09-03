@@ -1,8 +1,17 @@
+sudo: required
+dist: trusty
 language: ruby
+addons:
+  apt:
+    packages:
+      - tesseract-ocr
 rvm:
- - 2.0
  - 2.1
  - 2.2
 cache: bundler
+before_script:
+  - mkdir -p public/ocr-uploads
+  - mkdir -p public/ocr-output
+  - mkdir -p /home/travis/build/abarrak/optical-reader/tmp/
 script:
   - rake
