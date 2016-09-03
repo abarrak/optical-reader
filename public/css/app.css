@@ -47,14 +47,14 @@ p {
 
 .page-content-area {
   margin-top: 3em;
-  margin-bottom: 0.5em;
+  margin-bottom: 2em;
   margin-left: 4em;
   padding: 0 10em;
   font-family: Georgia, Roboto, sans-serif, Arial;
   font-size: 1.2em;
   color: #673501;
   text-align: justify;
-  white-space: pre-wrap;
+  white-space: pre-line;
   line-height: 1.9em !important;
 }
 

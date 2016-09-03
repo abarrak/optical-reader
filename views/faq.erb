@@ -22,7 +22,7 @@
     </nav>
     <div class="row">
         <div class="page-content-area">
-          <%= t 'static_content.faq.body' %>
+          <%= t('static_content.faq.body').strip! %>
         </div>
         <div class="row center">
           <%= erb :_share_buttons, layout: false, escape_html: true,
