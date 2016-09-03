@@ -10,6 +10,7 @@ rvm:
  - 2.2
 cache: bundler
 before_script:
+  - cp .travis.env .env
   - mkdir -p public/ocr-uploads
   - mkdir -p public/ocr-output
   - mkdir -p /home/travis/build/abarrak/optical-reader/tmp/

@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 
-
 gem 'thin'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'rack-flash3'
 gem 'encrypted_cookie'
 gem 'mini_magick'
-gem 'rtesseract', github: 'abarrak/rtesseract', branch: 'add-pdf-support'
+gem 'rtesseract', github: 'dannnylo/rtesseract'
 gem 'i18n'
 gem 'erubis'
 gem 'mail'

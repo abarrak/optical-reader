@@ -13,3 +13,6 @@ public/ocr-output/*
 
 # let's encrypt key, if used.
 key.pem
+
+# travis
+.travis.env
