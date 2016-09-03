@@ -9,6 +9,7 @@ module OpticalReaderTest
       def setup
         @eng_image = File.expand_path "../test-images/sample-eng.png", File.dirname(__FILE__)
         @ara_image = File.expand_path "../test-images/sample-ara.png", File.dirname(__FILE__)
+        @fra_image = File.expand_path "../test-images/sample-fra.jpg", File.dirname(__FILE__)
       end
 
       def test_recognize
@@ -31,6 +32,7 @@ module OpticalReaderTest
         assert_equal ocr.doc_path, @eng_image
         assert_equal ocr.lang, :eng
         assert_kind_of String, ocr.recognize
+        assert_equal "OCR Testing", ocr.recognize.strip.delete("\n")
       end
 
       def test_recognize_arabic
@@ -40,6 +42,17 @@ module OpticalReaderTest
         assert_equal ocr.doc_path, @ara_image
         assert_equal ocr.lang, :ara
         assert_kind_of String, ocr.recognize
+        assert_equal "تجربة تعرف طدونى\n\nهه", ocr.recognize.strip
+      end
+
+      def test_recognize_french
+        skip 'Travis CI does not have french tessdata .. skip.' if ENV['TRAVIS']
+
+        ocr = OCR.new @fra_image, :fra
+        assert_equal ocr.doc_path, @fra_image
+        assert_equal ocr.lang, :fra
+        assert_kind_of String, ocr.recognize
+        assert_equal "JE SERAI\n\nPUÈTE\nETTDI\n\n\"‘LÊî'E", ocr.recognize.strip
       end
     end
 
